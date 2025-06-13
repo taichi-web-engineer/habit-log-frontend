@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@conform-to/react':
+        specifier: ^1.7.0
+        version: 1.7.0(react@19.1.0)
+      '@conform-to/zod':
+        specifier: ^1.7.0
+        version: 1.7.0(zod@3.25.64)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -29,6 +35,9 @@ importers:
       tailwind-merge:
         specifier: ^3.3.1
         version: 3.3.1
+      zod:
+        specifier: ^3.25.64
+        version: 3.25.64
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -120,6 +129,19 @@ packages:
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
+
+  '@conform-to/dom@1.7.0':
+    resolution: {integrity: sha512-u/k39to4Tz5nJ514XE1APL55reAJG4r7vxL9lMatoAKBQ1bVk3q9q8Z0ZVKZcgOx5L+u6qyewbFvZyuj7GNYOg==}
+
+  '@conform-to/react@1.7.0':
+    resolution: {integrity: sha512-K+Dkze9z+ZHtI/4qztXFYjF/1feNZddvpDkvfvMzeMDLcyBauZumP8pJYXQcWRbYcl8/Wbp5UCENsiXCqec0rg==}
+    peerDependencies:
+      react: '>=18'
+
+  '@conform-to/zod@1.7.0':
+    resolution: {integrity: sha512-s0M0cSPEuYllF1NYuWXFu8Rl8v2M3aGrdqJl49yQEkcBTxb2i876Prt2BppBDOF2xBzzXRcWn/hu+CpNAkYvGw==}
+    peerDependencies:
+      zod: ^3.21.0
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
@@ -727,6 +749,9 @@ packages:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
+  zod@3.25.64:
+    resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -770,6 +795,18 @@ snapshots:
 
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
+
+  '@conform-to/dom@1.7.0': {}
+
+  '@conform-to/react@1.7.0(react@19.1.0)':
+    dependencies:
+      '@conform-to/dom': 1.7.0
+      react: 19.1.0
+
+  '@conform-to/zod@1.7.0(zod@3.25.64)':
+    dependencies:
+      '@conform-to/dom': 1.7.0
+      zod: 3.25.64
 
   '@emnapi/runtime@1.4.3':
     dependencies:
@@ -1270,3 +1307,5 @@ snapshots:
   undici-types@6.21.0: {}
 
   yallist@5.0.0: {}
+
+  zod@3.25.64: {}
