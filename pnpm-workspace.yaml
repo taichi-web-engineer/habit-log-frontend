@@ -2,3 +2,6 @@ ignoredBuiltDependencies:
   - '@biomejs/biome'
   - '@tailwindcss/oxide'
   - sharp
+
+onlyBuiltDependencies:
+  - lefthook
