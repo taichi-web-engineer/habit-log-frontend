@@ -11,6 +11,7 @@
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
+		"allowArbitraryExtensions": true, // next-intlのmessagesのjsonを型安全に扱うための設定
 		"jsx": "preserve",
 		"incremental": true,
 		"plugins": [
