@@ -4,15 +4,15 @@ Next.js 15 (App Router)、React 19、TypeScript、Tailwind CSS v4で構築され
 ## 必須コマンド
 ```bash
 # 開発
-npm run dev          # Turbopackで開発サーバーを起動 http://localhost:3000
+pnpm run dev          # Turbopackで開発サーバーを起動 http://localhost:3000
 
 # ビルド & 本番環境
-npm run build        # 最適化された本番ビルドを作成
-npm run start        # 本番サーバーを起動
+pnpm run build        # 最適化された本番ビルドを作成
+pnpm run start        # 本番サーバーを起動
 
 # コード品質
-npx @biomejs/biome check --write     # コードベース全体をフォーマット・リント
-npx @biomejs/biome check --write <file>  # 特定のファイルをフォーマット・リント
+pnpm biome check --write     # コードベース全体をフォーマット・リント
+pnpm biome check --write <file>  # 特定のファイルをフォーマット・リント
 ```
 
 ## コード品質ツール
@@ -51,8 +51,8 @@ npx @biomejs/biome check --write <file>  # 特定のファイルをフォーマ�
 - Zodスキーマによる型安全なフォーム処理
 
 ## 開発ワークフロー
-1. **作業開始前**: `npm install` を実行して依存関係を最新に保つ
-2. **開発中**: `npm run dev` でホットリロードを使用
+1. **作業開始前**: `pnpm install` を実行して依存関係を最新に保つ
+2. **開発中**: `pnpm run dev` でホットリロードを使用
 3. **コミット前**: Lefthookがステージングされたファイルに自動でBiomeを実行
 4. **手動フォーマット**: ファイルやディレクトリに `npx @biomejs/biome check --write` を実行
 
