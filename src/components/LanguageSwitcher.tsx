@@ -1,7 +1,7 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { setLocale } from "@/actions/set-locale";
 import { LOCALES, type Locale } from "@/i18n/config";
-import { useRouter } from "next/navigation";
 
 export default function LanguageSwitcher() {
 	const router = useRouter();
