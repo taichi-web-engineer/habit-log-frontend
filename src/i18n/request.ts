@@ -1,13 +1,13 @@
+import { match as matchLocale } from "@formatjs/intl-localematcher";
+import { cookies, headers } from "next/headers";
+import { getRequestConfig } from "next-intl/server";
+import type { Locale } from "@/i18n/config";
 import {
 	DEFAULT_LOCALE,
+	isLocale,
 	LOCALE_TEXT,
 	LOCALE_VALUES,
-	isLocale,
 } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
-import { match as matchLocale } from "@formatjs/intl-localematcher";
-import { getRequestConfig } from "next-intl/server";
-import { cookies, headers } from "next/headers";
 
 async function negotiateLocale(): Promise<Locale> {
 	const cookieStore = await cookies();
