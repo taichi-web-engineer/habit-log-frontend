@@ -13,12 +13,18 @@ pnpm run start        # 本番サーバーを起動
 # コード品質
 pnpm biome check --write     # コードベース全体をフォーマット・リント
 pnpm biome check --write <file>  # 特定のファイルをフォーマット・リント
+
+# テスト
+pnpm test                    # Jestでテストを実行
 ```
 
 ## コード品質ツール
 - **Biome**: リントとフォーマットの両方に使用
   - Lefthookのpre-commitフックでステージングされたファイルに自動実行
   - コミット前に実行してコード品質を確保
+- **Jest**: JavaScript/TypeScriptテストフレームワーク
+  - ユニットテストとインテグレーションテストに使用
+  - `pnpm test` でテストスイートを実行
 
 ## アーキテクチャ & 主要パターン
 
@@ -54,7 +60,7 @@ pnpm biome check --write <file>  # 特定のファイルをフォーマット・
 1. **作業開始前**: `pnpm install` を実行して依存関係を最新に保つ
 2. **開発中**: `pnpm run dev` でホットリロードを使用
 3. **コミット前**: Lefthookがステージングされたファイルに自動でBiomeを実行
-4. **手動フォーマット**: ファイルやディレクトリに `npx @biomejs/biome check --write` を実行
+4. **手動フォーマット**: ファイルやディレクトリに `pnpm biome check --write` を実行
 
 ## Git コミット規則
 - **コミットメッセージは日本語で記載**
