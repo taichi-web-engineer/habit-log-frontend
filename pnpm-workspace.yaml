@@ -1,8 +1,8 @@
 ignoredBuiltDependencies:
   - '@biomejs/biome'
-  - unrs-resolver
 
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - lefthook
   - sharp
+  - unrs-resolver
