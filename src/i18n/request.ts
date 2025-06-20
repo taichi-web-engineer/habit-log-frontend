@@ -1,6 +1,6 @@
-import { match as matchLocale } from "@formatjs/intl-localematcher";
 import { cookies, headers } from "next/headers";
 import { getRequestConfig } from "next-intl/server";
+import { resolveAcceptLanguage } from "resolve-accept-language";
 import type { Locale } from "@/i18n/config";
 import {
 	DEFAULT_LOCALE,
@@ -15,14 +15,10 @@ export async function negotiateLocale(): Promise<Locale> {
 	if (cookieLocale && isLocale(cookieLocale)) return cookieLocale;
 
 	const headerStore = await headers();
-	const accept = headerStore.get("accept-language");
-	if (accept) {
-		const langs = accept.split(",").map((l) => l.split(";")[0].trim());
-		const matched = matchLocale(langs, LOCALE_VALUES, DEFAULT_LOCALE);
-		return isLocale(matched) ? matched : DEFAULT_LOCALE;
-	}
+	const accept = headerStore.get("accept-language") ?? "";
+	const matched = resolveAcceptLanguage(accept, LOCALE_VALUES, DEFAULT_LOCALE);
 
-	return DEFAULT_LOCALE;
+	return isLocale(matched) ? matched : DEFAULT_LOCALE;
 }
 
 export default getRequestConfig(async () => {
