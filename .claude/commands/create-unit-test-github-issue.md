@@ -1,5 +1,5 @@
-以下の手順にそってGitHub Issueを作成してください。
+以下の手順にそってGitHub Issueを作成してください。$ARGUMENTSは`ファイル名|関数名`のフォーマットです
 
-1. $ARGUMENTSのファイルを解析
-2. $ARGUMENTSのファイルのUnit Testパターンを考える
+1. `ファイル名`のファイルを解析
+2. `ファイル名`のファイル内の`関数名`の関数のUnit Testパターンを考える
 3. 考えたUnit Testパターンに対応するためのGitHub Issueを作成
