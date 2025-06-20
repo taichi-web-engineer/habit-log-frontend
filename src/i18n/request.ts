@@ -1,7 +1,7 @@
 import { cookies, headers } from "next/headers";
+import type { AbstractIntlMessages } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 import { resolveAcceptLanguage } from "resolve-accept-language";
-import type { Locale } from "@/i18n/config";
 import {
 	DEFAULT_LOCALE,
 	isLocale,
@@ -9,22 +9,45 @@ import {
 	LOCALE_VALUES,
 } from "@/i18n/config";
 
-export async function negotiateLocale(): Promise<Locale> {
-	const cookieStore = await cookies();
-	const cookieLocale = cookieStore.get(LOCALE_TEXT)?.value;
+export function determineLocale(
+	cookieLocale: string | undefined,
+	acceptHeader: string | null,
+	resolveLanguage = resolveAcceptLanguage,
+) {
 	if (cookieLocale && isLocale(cookieLocale)) return cookieLocale;
 
-	const headerStore = await headers();
-	const accept = headerStore.get("accept-language") ?? "";
-	const matched = resolveAcceptLanguage(accept, LOCALE_VALUES, DEFAULT_LOCALE);
+	if (!acceptHeader) return DEFAULT_LOCALE;
 
+	const matched = resolveLanguage(acceptHeader, LOCALE_VALUES, DEFAULT_LOCALE);
 	return isLocale(matched) ? matched : DEFAULT_LOCALE;
+}
+
+async function negotiateLocale() {
+	const cookieStore = await cookies();
+	const headerStore = await headers();
+
+	return determineLocale(
+		cookieStore.get(LOCALE_TEXT)?.value,
+		headerStore.get("accept-language"),
+	);
 }
 
 export default getRequestConfig(async () => {
 	const locale = await negotiateLocale();
-	return {
-		locale,
-		messages: (await import(`./messages/${locale}.json`)).default,
-	};
+	let messages: AbstractIntlMessages = {};
+	try {
+		// ↓ビルド時解析のためにinclude ヒントを付与
+		messages = (
+			await import(
+				/* webpackInclude: /messages\/.*\.json$/ */
+				`./messages/${locale}.json`
+			)
+		).default;
+	} catch (err) {
+		console.error(
+			`locale "${locale}" のメッセージファイルが見つかりません`,
+			err,
+		);
+	}
+	return { locale, messages };
 });
