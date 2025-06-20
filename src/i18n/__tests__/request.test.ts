@@ -14,7 +14,7 @@ const mockResolveAcceptLanguage = resolveAcceptLanguage as jest.MockedFunction<
 >;
 
 type MockCookieStore = Pick<ReadonlyRequestCookies, "get">;
-type MockHeaderStore = { get: jest.Mock };
+type MockHeaderStore = Pick<Headers, "get">;
 
 describe("negotiateLocale", () => {
 	beforeEach(() => {
