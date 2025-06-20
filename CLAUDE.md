@@ -13,12 +13,18 @@ pnpm run start        # 本番サーバーを起動
 # コード品質
 pnpm biome check --write     # コードベース全体をフォーマット・リント
 pnpm biome check --write <file>  # 特定のファイルをフォーマット・リント
+
+# テスト
+pnpm test                    # Jestでテストを実行
 ```
 
 ## コード品質ツール
 - **Biome**: リントとフォーマットの両方に使用
   - Lefthookのpre-commitフックでステージングされたファイルに自動実行
   - コミット前に実行してコード品質を確保
+- **Jest**: JavaScript/TypeScriptテストフレームワーク
+  - ユニットテストとインテグレーションテストに使用
+  - `pnpm test` でテストスイートを実行
 
 ## アーキテクチャ & 主要パターン
 
@@ -54,7 +60,7 @@ pnpm biome check --write <file>  # 特定のファイルをフォーマット・
 1. **作業開始前**: `pnpm install` を実行して依存関係を最新に保つ
 2. **開発中**: `pnpm run dev` でホットリロードを使用
 3. **コミット前**: Lefthookがステージングされたファイルに自動でBiomeを実行
-4. **手動フォーマット**: ファイルやディレクトリに `npx @biomejs/biome check --write` を実行
+4. **手動フォーマット**: ファイルやディレクトリに `pnpm biome check --write` を実行
 
 ## Git コミット規則
 - **コミットメッセージは日本語で記載**
@@ -66,8 +72,3 @@ pnpm biome check --write <file>  # 特定のファイルをフォーマット・
 - **TypeScript**: strictモードが有効; すべてのコードに適切な型付けを確保
 - **Next.js設定**: `next.config.ts` のカスタム設定にはi18nプラグイン設定を含む
 - **環境**: pnpmパッケージマネージャーでの開発をサポート
-
-## Context7による最新情報参照
-- **Context7**: Claude Codeでの開発時は常にContext7を活用して最新の技術情報とベストプラクティスを参照
-- ライブラリのドキュメント、API仕様、実装パターンなどの最新情報を取得
-- 新機能実装やトラブルシューティング時にContext7で関連情報を検索・参照することを推奨
