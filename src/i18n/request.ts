@@ -9,7 +9,7 @@ import {
 	LOCALE_VALUES,
 } from "@/i18n/config";
 
-async function negotiateLocale(): Promise<Locale> {
+export async function negotiateLocale(): Promise<Locale> {
 	const cookieStore = await cookies();
 	const cookieLocale = cookieStore.get(LOCALE_TEXT)?.value;
 	if (cookieLocale && isLocale(cookieLocale)) return cookieLocale;

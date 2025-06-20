@@ -8,7 +8,7 @@ export default async (): Promise<Config> => {
 	const baseConfig = await createJestConfig({
 		testEnvironment: "jsdom",
 		setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-		moduleNameMapper: { "^@/(.*)$": "<rootDir>/$1" },
+		moduleNameMapper: { "^@/(.*)$": "<rootDir>/src/$1" },
 	})();
 
 	// 型定義に載っていない項目をここで合流させる
@@ -19,9 +19,9 @@ export default async (): Promise<Config> => {
 		coverageDirectory: "<rootDir>/coverage",
 		coverageProvider: "v8",
 		collectCoverageFrom: [
-			"<rootDir>/**/*.{ts,tsx}",
-			"!<rootDir>/**/*.d.ts",
-			"!<rootDir>/**/__tests__/**",
+			"<rootDir>/src/**/*.{ts,tsx}",
+			"!<rootDir>/src/**/*.d.ts",
+			"!<rootDir>/src/**/__tests__/**",
 		],
 		transformIgnorePatterns: ["node_modules/(?!next-intl)/"],
 	};
