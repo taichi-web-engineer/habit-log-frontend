@@ -6,7 +6,7 @@ const createJestConfig = nextJest({ dir: "./" });
 export default async (): Promise<Config> => {
 	// ⚠️ ここでは「最小限」のオプションだけ渡す
 	const baseConfig = await createJestConfig({
-		testEnvironment: "node",
+		testEnvironment: "jsdom",
 		setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 		moduleNameMapper: { "^@/(.*)$": "<rootDir>/src/$1" },
 	})();
