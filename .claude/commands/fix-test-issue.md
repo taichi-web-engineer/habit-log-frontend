@@ -6,8 +6,8 @@
 4. ローカルブランチを`feature/{Issueの概要}`ブランチに切り替え
 5. コードベースを検索し、関連ファイルを特定
 6. テスト規約`.claude/unit-test-terms.md`にのっとってIssueのテストを実装。
-7. `pnpm tsc --noEmit`でエラーが出ないことを確認
-8. `pnpm biome check --write`でリントと型チェックを通過することを確認
+7. `pnpm biome check --write`でリントと型チェックを通過することを確認
+8. `pnpm tsc --noEmit`でエラーが出ないことを確認
 9. 分かりやすいコミットメッセージを作成
 10. 変更をpushしてPRを作成
 
