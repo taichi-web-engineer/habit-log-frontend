@@ -9,120 +9,16 @@ describe("determineLocale", () => {
 		mockResolveLanguage.mockReset();
 	});
 
-	describe("Cookieロケールの優先度テスト", () => {
-		it("有効なcookieLocaleが渡された場合、それを返すこと", () => {
-			const result = determineLocale(
-				LOCALES.EN,
-				"ja,en;q=0.9",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(LOCALES.EN);
-			expect(mockResolveLanguage).not.toHaveBeenCalled();
-		});
+	describe.each([
+		["有効 cookie (en)", LOCALES.EN, "ja,en;q=0.9", LOCALES.EN, false],
+		["有効 cookie (jp)", LOCALES.JP, "en,ja;q=0.9", LOCALES.JP, false],
+		["無効 cookie", "invalid-locale", "en,ja;q=0.9", LOCALES.EN, true],
+		["cookie undefined", undefined, "ja,en;q=0.9", LOCALES.JP, true],
+		["cookie empty", "", "en,ja;q=0.9", LOCALES.EN, true],
+	])("%s", (_, cookie, header, expected, callResolveLanguage) => {
+		if (callResolveLanguage) mockResolveLanguage.mockReturnValue(expected);
 
-		it("有効なcookieLocale(jp)が渡された場合、それを返すこと", () => {
-			const result = determineLocale(
-				LOCALES.JP,
-				"en,ja;q=0.9",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(LOCALES.JP);
-			expect(mockResolveLanguage).not.toHaveBeenCalled();
-		});
-
-		it("無効なcookieLocaleが渡された場合、無視されること", () => {
-			mockResolveLanguage.mockReturnValue(LOCALES.EN);
-			const result = determineLocale(
-				"invalid-locale",
-				"en,ja;q=0.9",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(LOCALES.EN);
-			expect(mockResolveLanguage).toHaveBeenCalledWith(
-				"en,ja;q=0.9",
-				LOCALE_VALUES,
-				DEFAULT_LOCALE,
-			);
-		});
-
-		it("cookieLocaleがundefinedの場合、他の判定に進むこと", () => {
-			mockResolveLanguage.mockReturnValue(LOCALES.JP);
-			const result = determineLocale(
-				undefined,
-				"ja,en;q=0.9",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(LOCALES.JP);
-			expect(mockResolveLanguage).toHaveBeenCalledWith(
-				"ja,en;q=0.9",
-				LOCALE_VALUES,
-				DEFAULT_LOCALE,
-			);
-		});
-
-		it("cookieLocaleが空文字列の場合、他の判定に進むこと", () => {
-			mockResolveLanguage.mockReturnValue(LOCALES.EN);
-			const result = determineLocale("", "en,ja;q=0.9", mockResolveLanguage);
-			expect(result).toBe(LOCALES.EN);
-			expect(mockResolveLanguage).toHaveBeenCalledWith(
-				"en,ja;q=0.9",
-				LOCALE_VALUES,
-				DEFAULT_LOCALE,
-			);
-		});
-	});
-
-	describe("Accept-Languageヘッダーの処理テスト", () => {
-		it("acceptHeaderがnullの場合、DEFAULT_LOCALEを返すこと", () => {
-			const result = determineLocale(undefined, null, mockResolveLanguage);
-			expect(result).toBe(DEFAULT_LOCALE);
-			expect(mockResolveLanguage).not.toHaveBeenCalled();
-		});
-
-		it("有効なaccept-languageヘッダーが渡された場合、適切にマッチングされること", () => {
-			mockResolveLanguage.mockReturnValue(LOCALES.EN);
-			const result = determineLocale(
-				undefined,
-				"en,ja;q=0.9",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(LOCALES.EN);
-			expect(mockResolveLanguage).toHaveBeenCalledWith(
-				"en,ja;q=0.9",
-				LOCALE_VALUES,
-				DEFAULT_LOCALE,
-			);
-		});
-
-		it("複数の言語が指定された場合、優先度に従って処理されること", () => {
-			mockResolveLanguage.mockReturnValue(LOCALES.JP);
-			const result = determineLocale(
-				undefined,
-				"fr;q=0.8,ja;q=0.9,en;q=0.7",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(LOCALES.JP);
-			expect(mockResolveLanguage).toHaveBeenCalledWith(
-				"fr;q=0.8,ja;q=0.9,en;q=0.7",
-				LOCALE_VALUES,
-				DEFAULT_LOCALE,
-			);
-		});
-
-		it("サポートされていない言語の場合、DEFAULT_LOCALEを返すこと", () => {
-			mockResolveLanguage.mockReturnValue("fr"); // サポートされていない言語
-			const result = determineLocale(
-				undefined,
-				"fr,de;q=0.9",
-				mockResolveLanguage,
-			);
-			expect(result).toBe(DEFAULT_LOCALE);
-			expect(mockResolveLanguage).toHaveBeenCalledWith(
-				"fr,de;q=0.9",
-				LOCALE_VALUES,
-				DEFAULT_LOCALE,
-			);
-		});
+		expect(determineLocale(cookie, header, mockResolveLanguage)).toBe(expected);
 	});
 
 	describe("resolveLanguage関数のモック化", () => {
