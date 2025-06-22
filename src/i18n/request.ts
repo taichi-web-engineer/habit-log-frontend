@@ -11,15 +11,17 @@ import {
 
 export function determineLocale(
 	cookieLocale: string | undefined,
-	acceptHeader: string | null,
-	resolveLanguage = resolveAcceptLanguage,
+	headerAcceptLanguage: string | null,
 ) {
-	if (cookieLocale && isLocale(cookieLocale)) return cookieLocale;
+	if (isLocale(cookieLocale)) return cookieLocale;
 
-	if (!acceptHeader) return DEFAULT_LOCALE;
+	if (headerAcceptLanguage === null) return DEFAULT_LOCALE;
 
-	const matched = resolveLanguage(acceptHeader, LOCALE_VALUES, DEFAULT_LOCALE);
-	return isLocale(matched) ? matched : DEFAULT_LOCALE;
+	return resolveAcceptLanguage(
+		headerAcceptLanguage,
+		LOCALE_VALUES,
+		DEFAULT_LOCALE,
+	);
 }
 
 async function negotiateLocale() {

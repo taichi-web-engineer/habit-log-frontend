@@ -13,7 +13,7 @@ export default function LanguageSwitcher() {
 
 	return (
 		<div className="space-x-2">
-			<button type="button" onClick={() => change(LOCALES.JP)}>
+			<button type="button" onClick={() => change(LOCALES.JA)}>
 				日本語
 			</button>
 			<button type="button" onClick={() => change(LOCALES.EN)}>
