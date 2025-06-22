@@ -14,7 +14,7 @@ const testCases = [
 		`cookie:${LOCALES.EN}、accept-language:ja,en;q=0.9`,
 		LOCALES.EN,
 		"ja,en;q=0.9",
-		LOCALES.EN,
+		LOCALES.JA,
 	],
 	[
 		`cookie:${LOCALES.JA}、accept-language:en,ja;q=0.9`,
