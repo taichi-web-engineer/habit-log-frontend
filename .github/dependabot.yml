@@ -1,5 +1,14 @@
 version: 2
 updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # ロックファイルが大きい場合はPRを1本にまとめる
+    groups:
+      all-pnpm-deps:
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

@@ -1,0 +1,36 @@
+name: Detect outdated dependencies (pnpm)
+
+on:
+  # 00:00 JST (金曜) ＝ 前日 15:00 UTC (木曜)
+  schedule:
+    - cron: '0 15 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  outdated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install dependencies
+        env: { PNPM_LOG_LEVEL: error, CI: true }
+        run: pnpm -r install --frozen-lockfile --prefer-offline
+      - name: Check for outdated packages
+        env: { CI: true }
+        run: pnpm -r outdated
