@@ -4,7 +4,6 @@ on:
   # 00:00 JST (金曜) ＝ 前日 15:00 UTC (木曜)
   schedule:
     - cron: '0 15 * * 4'
-  workflow_dispatch:
 
 permissions:
   contents: read
