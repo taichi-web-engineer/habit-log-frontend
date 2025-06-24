@@ -4,35 +4,26 @@ import {
 	CheckCircle,
 	HeartHandshake,
 } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Header } from "@/components/header";
 
 export default function Home() {
+	const t = useTranslations("Home");
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+			<Header />
 			<div className="container mx-auto px-4 py-8 lg:py-16">
 				<div className="grid lg:grid-cols-2 gap-12 items-center">
 					{/* 左側セクション */}
 					<div className="space-y-8">
-						{/* ロゴ */}
-						<div className="flex items-center gap-3">
-							<div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-								H
-							</div>
-							<span className="text-2xl font-bold text-gray-900">
-								Habit Log
-							</span>
-						</div>
-
 						{/* メインコピー */}
 						<div className="space-y-4">
 							<h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-								習慣を記録し、成長を
-								<br />
-								可視化する
+								{t("title")}
 							</h1>
 							<p className="text-lg text-gray-600 leading-relaxed">
-								Habit Logで毎日の小さな積み重ねを大きな成果に変えましょう。
-								<br />
-								シンプルで直感的なインターフェースで、あなたの習慣形成をサポートします。
+								{t("description")}
 							</p>
 						</div>
 
@@ -41,19 +32,19 @@ export default function Home() {
 							<div className="flex items-center gap-2">
 								<CheckCircle className="w-5 h-5 text-green-500" />
 								<span className="text-sm font-medium text-gray-700">
-									直感的な記録
+									{t("features.tracking")}
 								</span>
 							</div>
 							<div className="flex items-center gap-2">
 								<BarChart3 className="w-5 h-5 text-blue-500" />
 								<span className="text-sm font-medium text-gray-700">
-									美しい可視化
+									{t("features.visualization")}
 								</span>
 							</div>
 							<div className="flex items-center gap-2">
 								<HeartHandshake className="w-5 h-5 text-purple-500" />
 								<span className="text-sm font-medium text-gray-700">
-									継続をサポート
+									{t("features.support")}
 								</span>
 							</div>
 						</div>
@@ -61,17 +52,15 @@ export default function Home() {
 						{/* CTAボタン */}
 						<button
 							type="button"
-							className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-medium px-8 py-4 rounded-lg shadow-xl flex items-center justify-center gap-2 transition-all transform hover:scale-105"
+							className="w-full sm:w-auto bg-gradient-to-r from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white font-medium px-8 py-4 rounded-lg shadow-xl flex items-center justify-center gap-2 transition-all transform hover:scale-105"
 						>
-							無料で始める
+							{t("cta")}
 							<ArrowRight className="w-5 h-5" />
 						</button>
 
 						{/* ユーザー数 */}
 						<div className="space-y-3">
-							<p className="text-sm text-gray-600">
-								10,000人以上のユーザーに愛用されています
-							</p>
+							<p className="text-sm text-gray-600">{t("userCount")}</p>
 							<div className="flex items-center gap-2">
 								<div className="flex -space-x-3">
 									{[1, 2, 3, 4, 5].map((i) => (
@@ -111,9 +100,13 @@ export default function Home() {
 										{/* ヘッダー */}
 										<div className="flex items-center justify-between">
 											<div className="flex items-center gap-2">
-												<div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-													H
-												</div>
+												<Image
+													src="/icon.svg"
+													alt="Habit Log"
+													width={32}
+													height={32}
+													className="w-8 h-8 rounded-lg"
+												/>
 												<span className="font-bold text-gray-900">
 													Habit Log
 												</span>

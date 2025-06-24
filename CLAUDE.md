@@ -19,14 +19,6 @@ pnpm tsc --noEmit # TypeScriptのエラーチェック
 pnpm test                    # Jestでテストを実行
 ```
 
-## コード品質ツール
-- **Biome**: リントとフォーマットの両方に使用
-  - Lefthookのpre-commitフックでステージングされたファイルに自動実行
-  - コミット前に実行してコード品質を確保
-- **Jest**: JavaScript/TypeScriptテストフレームワーク
-  - ユニットテストとインテグレーションテストに使用
-  - `pnpm test` でテストスイートを実行
-
 ## アーキテクチャ & 主要パターン
 
 ### ディレクトリ構造
@@ -37,14 +29,6 @@ pnpm test                    # Jestでテストを実行
 - `/src/lib/`: ユーティリティ関数と共有コード
 - `/types/`: TypeScript型定義
 - `@/*`: パスエイリアスは `/src/*` にマップ
-
-### 国際化 (i18n)
-- サーバー側とクライアント側の翻訳に `next-intl` を使用
-- サポートロケール: `en-US` (英語) と `ja-JP` (日本語)
-- デフォルトロケール: `ja-JP`
-- メッセージは `/src/i18n/messages/{locale}.json` に保存
-- サーバーアクションはロケール設定をクッキーで永続化
-- コンポーネントは `useTranslations` フックで翻訳にアクセス可能
 
 ### スタイリング & UIコンポーネント
 - スタイリングにTailwind CSS v4を使用
@@ -58,9 +42,17 @@ pnpm test                    # Jestでテストを実行
 - サーバーアクションがフォーム送信を処理
 - Zodスキーマによる型安全なフォーム処理
 
-## 開発関連ドキュメント
-- コーディングルール: `docs/coding-rule.md`
-- Unit Testルール: `docs/unit-test-rule.md`
+### 国際化 (i18n)
+- サーバー側とクライアント側の翻訳に `next-intl` を使用
+- サポートロケール: `en-US` (英語) と `ja-JP` (日本語)
+- デフォルトロケール: `ja-JP`
+- メッセージは `/src/i18n/messages/{locale}.json` に保存
+- サーバーアクションはロケール設定をクッキーで永続化
+- コンポーネントは `useTranslations` フックで翻訳にアクセス可能
+
+## 開発手順
+- コーディングルールは`docs/coding-rule.md`に従う
+- Unit Testルールは`docs/unit-test-rule.md`に従う
 
 ## Git コミット規則
 - **コミットメッセージは日本語で記載**

@@ -1,6 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { LOCALE_TEXT, type Locale } from "@/i18n/config";
 
 export async function setLocale(locale: Locale) {
@@ -8,4 +9,5 @@ export async function setLocale(locale: Locale) {
 		path: "/",
 		maxAge: 60 * 60 * 24 * 365,
 	});
+	redirect("/");
 }

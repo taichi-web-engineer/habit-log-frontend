@@ -1,5 +1,14 @@
 {
 	"Home": {
-		"topPage": "Top page"
+		"topPage": "Top page",
+		"title": "Track Your Habits, Visualize Your Growth",
+		"description": "Transform your daily small actions into significant achievements with Habit Log.\nSupport your habit formation with our simple and intuitive interface.",
+		"features": {
+			"tracking": "Intuitive Tracking",
+			"visualization": "Beautiful Visualization",
+			"support": "Continuous Support"
+		},
+		"cta": "Get Started Now",
+		"userCount": "Trusted by over 10,000 users"
 	}
 }
