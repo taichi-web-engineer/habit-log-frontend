@@ -1,14 +1,5 @@
 {
 	"Home": {
-		"topPage": "Top page",
-		"mainCatchCopy": "Track your daily habits and become your ideal self",
-		"subCopy": "Record your habits anywhere, anytime. We support your consistency.",
-		"emailPlaceholder": "Email address",
-		"getStarted": "Get Started",
-		"login": "Sign In"
-	},
-	"Languages": {
-		"ja": "日本語",
-		"en": "English"
+		"topPage": "Top page"
 	}
 }

@@ -1,14 +1,5 @@
 {
 	"Home": {
-		"topPage": "トップページ",
-		"mainCatchCopy": "毎日の習慣を記録して、理想の自分へ",
-		"subCopy": "どこでも簡単に習慣を記録。継続をサポートします。",
-		"emailPlaceholder": "メールアドレス",
-		"getStarted": "今すぐ始める",
-		"login": "ログイン"
-	},
-	"Languages": {
-		"ja": "日本語",
-		"en": "English"
+		"topPage": "トップページ"
 	}
 }
