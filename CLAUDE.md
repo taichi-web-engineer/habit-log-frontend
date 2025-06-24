@@ -1,5 +1,5 @@
 ## プロジェクト概要
-Next.js 15 (App Router)、React 19、TypeScript、Tailwind CSS v4で構築された習慣記録フロントエンドアプリケーション。英語と日本語の国際化対応機能あり。
+Next.js 15 (App Router)、React 19、TypeScript、Tailwind CSS v4で構築された習慣記録フロントエンドアプリケーション。アプリ名は「Habit Log」。英語と日本語の国際化対応機能あり。
 
 ## 必須コマンド
 ```bash
@@ -13,6 +13,7 @@ pnpm run start        # 本番サーバーを起動
 # コード品質
 pnpm biome check --write     # コードベース全体をフォーマット・リント
 pnpm biome check --write <file>  # 特定のファイルをフォーマット・リント
+pnpm tsc --noEmit # TypeScriptのエラーチェック
 
 # テスト
 pnpm test                    # Jestでテストを実行
@@ -47,8 +48,9 @@ pnpm test                    # Jestでテストを実行
 
 ### スタイリング & UIコンポーネント
 - スタイリングにTailwind CSS v4を使用
+- コンポーネントは基本的に`shadcn/ui`を利用
 - コンポーネントのバリアントは `class-variance-authority` (cva) で管理
-- アイコンは `lucide-react` から
+- アイコンは `lucide-react` を利用
 - ユーティリティクラスは `clsx` とカスタム `cn()` ヘルパーで結合
 
 ### フォーム処理
