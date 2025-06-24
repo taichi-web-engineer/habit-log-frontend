@@ -1,12 +1,11 @@
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Home() {
-	const translations = useTranslations("Home");
+	const translation = useTranslations("Home");
+
 	return (
 		<>
-			<h1>{translations("topPage")}</h1>
-			<LanguageSwitcher />
+			<p>{translation("topPage")}</p>
 		</>
 	);
 }
