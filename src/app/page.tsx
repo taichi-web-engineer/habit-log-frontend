@@ -1,11 +1,201 @@
-import { useTranslations } from "next-intl";
+import {
+	ArrowRight,
+	BarChart3,
+	CheckCircle,
+	HeartHandshake,
+} from "lucide-react";
 
 export default function Home() {
-	const translation = useTranslations("Home");
-
 	return (
-		<>
-			<p>{translation("topPage")}</p>
-		</>
+		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+			<div className="container mx-auto px-4 py-8 lg:py-16">
+				<div className="grid lg:grid-cols-2 gap-12 items-center">
+					{/* 左側セクション */}
+					<div className="space-y-8">
+						{/* ロゴ */}
+						<div className="flex items-center gap-3">
+							<div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+								H
+							</div>
+							<span className="text-2xl font-bold text-gray-900">
+								Habit Log
+							</span>
+						</div>
+
+						{/* メインコピー */}
+						<div className="space-y-4">
+							<h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+								習慣を記録し、成長を
+								<br />
+								可視化する
+							</h1>
+							<p className="text-lg text-gray-600 leading-relaxed">
+								Habit Logで毎日の小さな積み重ねを大きな成果に変えましょう。
+								<br />
+								シンプルで直感的なインターフェースで、あなたの習慣形成をサポートします。
+							</p>
+						</div>
+
+						{/* 特徴 */}
+						<div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+							<div className="flex items-center gap-2">
+								<CheckCircle className="w-5 h-5 text-green-500" />
+								<span className="text-sm font-medium text-gray-700">
+									直感的な記録
+								</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<BarChart3 className="w-5 h-5 text-blue-500" />
+								<span className="text-sm font-medium text-gray-700">
+									美しい可視化
+								</span>
+							</div>
+							<div className="flex items-center gap-2">
+								<HeartHandshake className="w-5 h-5 text-purple-500" />
+								<span className="text-sm font-medium text-gray-700">
+									継続をサポート
+								</span>
+							</div>
+						</div>
+
+						{/* CTAボタン */}
+						<button
+							type="button"
+							className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 text-white font-medium px-8 py-4 rounded-lg shadow-xl flex items-center justify-center gap-2 transition-all transform hover:scale-105"
+						>
+							無料で始める
+							<ArrowRight className="w-5 h-5" />
+						</button>
+
+						{/* ユーザー数 */}
+						<div className="space-y-3">
+							<p className="text-sm text-gray-600">
+								10,000人以上のユーザーに愛用されています
+							</p>
+							<div className="flex items-center gap-2">
+								<div className="flex -space-x-3">
+									{[1, 2, 3, 4, 5].map((i) => (
+										<div
+											key={i}
+											className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-full border-2 border-white flex items-center justify-center text-white font-semibold"
+										>
+											{i}
+										</div>
+									))}
+								</div>
+								<span className="text-sm font-medium text-gray-700 ml-2">
+									+10,000
+								</span>
+							</div>
+						</div>
+					</div>
+
+					{/* 右側セクション - モバイルモックアップ */}
+					<div className="relative">
+						<div className="relative mx-auto max-w-[320px]">
+							{/* モバイルフレーム */}
+							<div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
+								<div className="bg-white rounded-[2.5rem] overflow-hidden">
+									{/* ステータスバー */}
+									<div className="bg-gray-900 px-6 py-2 flex justify-between items-center text-white text-xs">
+										<span>9:41</span>
+										<div className="flex gap-1">
+											<div className="w-4 h-3 bg-white rounded-sm" />
+											<div className="w-4 h-3 bg-white rounded-sm" />
+											<div className="w-4 h-3 bg-white rounded-sm" />
+										</div>
+									</div>
+
+									{/* アプリコンテンツ */}
+									<div className="p-6 space-y-6">
+										{/* ヘッダー */}
+										<div className="flex items-center justify-between">
+											<div className="flex items-center gap-2">
+												<div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+													H
+												</div>
+												<span className="font-bold text-gray-900">
+													Habit Log
+												</span>
+											</div>
+											<div className="text-sm text-gray-500">
+												ダッシュボード
+											</div>
+										</div>
+
+										{/* 習慣カード */}
+										<div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl p-4 text-white">
+											<div className="flex items-center justify-between mb-2">
+												<span className="font-medium">腕立て伏せ</span>
+												<div className="flex items-center gap-1">
+													<div className="w-2 h-2 bg-white rounded-full" />
+													<span className="text-xs">今日実施予定</span>
+												</div>
+											</div>
+											<div className="text-sm opacity-90">直近の記録</div>
+										</div>
+
+										{/* チャート */}
+										<div className="bg-gray-50 rounded-2xl p-4">
+											<div className="flex justify-center items-end gap-2 h-32">
+												{[40, 60, 45, 80, 65, 90, 75].map((height) => (
+													<div
+														key={`chart-bar-${height}`}
+														className="w-8 bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t-lg"
+														style={{ height: `${height}%` }}
+													/>
+												))}
+											</div>
+										</div>
+
+										{/* 統計 */}
+										<div className="grid grid-cols-3 gap-3">
+											<div className="text-center">
+												<div className="text-2xl font-bold text-blue-600">
+													156
+												</div>
+												<div className="text-xs text-gray-500">総日数</div>
+											</div>
+											<div className="text-center">
+												<div className="text-2xl font-bold text-green-600">
+													2,847
+												</div>
+												<div className="text-xs text-gray-500">総回数</div>
+											</div>
+											<div className="text-center">
+												<div className="text-2xl font-bold text-purple-600">
+													12
+												</div>
+												<div className="text-xs text-gray-500">復活回数</div>
+											</div>
+										</div>
+
+										{/* フローティングボタン */}
+										<div className="flex justify-end">
+											<div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-full flex items-center justify-center text-white shadow-lg">
+												<span className="text-2xl">+</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{/* ドットインジケーター */}
+						<div className="flex justify-center gap-2 mt-8">
+							<div className="w-2 h-2 bg-blue-500 rounded-full" />
+							<div className="w-2 h-2 bg-gray-300 rounded-full" />
+							<div className="w-2 h-2 bg-gray-300 rounded-full" />
+							<div className="w-2 h-2 bg-gray-300 rounded-full" />
+						</div>
+
+						{/* ターゲットアイコン */}
+						<div className="absolute -bottom-4 -right-4 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-xl">
+							<CheckCircle className="w-10 h-10 text-white" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 }
