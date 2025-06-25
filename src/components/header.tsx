@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./language-switcher";
 
 export function Header() {
-	const t = useTranslations("Home");
+	const translations = useTranslations("Home");
 
 	return (
 		<header className="w-full px-4 py-4">
@@ -14,19 +14,22 @@ export function Header() {
 						alt="Habit Log"
 						width={40}
 						height={40}
-						className="h-10 w-10 rounded-xl shadow-lg"
+						className="rounded-xl shadow-lg"
 					/>
 					<span className="font-bold text-2xl text-gray-900">Habit Log</span>
 				</div>
-				<div className="flex items-center gap-4">
+				<nav
+					className="flex items-center gap-4"
+					aria-label={translations("headerNav")}
+				>
 					<LanguageSwitcher />
 					<button
 						type="button"
-						className="flex transform items-center justify-center rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-3 py-2 text-sm text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
+						className="flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-3 py-2 text-sm text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
 					>
-						{t("login")}
+						{translations("login")}
 					</button>
-				</div>
+				</nav>
 			</div>
 		</header>
 	);
