@@ -11,7 +11,7 @@ export function Header() {
 	return (
 		<header className="w-full p-4">
 			<div className="mx-auto flex max-w-7xl items-center justify-between">
-				<div className="flex items-center gap-3">
+				<Link href="/" className="flex items-center gap-3">
 					<Image
 						src="/icon.svg"
 						alt={APP_NAME}
@@ -20,7 +20,7 @@ export function Header() {
 						className="rounded-xl shadow-lg"
 					/>
 					<span className="font-bold text-2xl text-gray-900">{APP_NAME}</span>
-				</div>
+				</Link>
 				<nav
 					className="flex items-center gap-4"
 					aria-label={translations("headerNav")}
