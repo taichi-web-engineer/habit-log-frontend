@@ -49,14 +49,23 @@ export default function Home() {
 							</div>
 						</div>
 
-						{/* CTAボタン */}
-						<button
-							type="button"
-							className="w-full sm:w-auto bg-gradient-to-r from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white font-medium px-8 py-4 rounded-lg shadow-xl flex items-center justify-center gap-2 transition-all transform hover:scale-105"
-						>
-							{t("cta")}
-							<ArrowRight className="w-5 h-5" />
-						</button>
+						{/* メール入力とCTAボタン */}
+						<div className="space-y-4">
+							<div className="flex flex-col sm:flex-row gap-3">
+								<input
+									type="email"
+									placeholder={t("emailPlaceholder")}
+									className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+								/>
+								<button
+									type="button"
+									className="bg-gradient-to-r from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white font-medium px-8 py-3 rounded-lg shadow-xl flex items-center justify-center gap-2 transition-all transform hover:scale-105 whitespace-nowrap"
+								>
+									{t("cta")}
+									<ArrowRight className="w-5 h-5" />
+								</button>
+							</div>
+						</div>
 
 						{/* ユーザー数 */}
 						<div className="space-y-3">
