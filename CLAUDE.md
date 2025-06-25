@@ -51,6 +51,7 @@ pnpm test                    # Jestでテストを実行
 - コンポーネントは `useTranslations` フックで翻訳にアクセス可能
 
 ## 開発手順
+- 開発ドキュメントはMCPサーバーのcotext7を使った`use context7`で常に最新を参照する
 - コーディングルールは`docs/coding-rule.md`に従う
 - Unit Testルールは`docs/unit-test-rule.md`に従う
 
