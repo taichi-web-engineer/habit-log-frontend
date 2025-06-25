@@ -52,28 +52,28 @@ export function LanguageSwitcher() {
 			<button
 				type="button"
 				onClick={() => setIsOpen(!isOpen)}
-				className="flex items-center gap-1 px-3 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+				className="flex items-center gap-1 rounded-lg border border-gray-300 bg-white px-3 py-2.5 font-medium text-gray-700 text-sm transition-colors hover:bg-gray-50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
 			>
-				<Globe className="w-4 h-4" />
-				<ChevronDown className="w-4 h-4" />
+				<Globe className="h-4 w-4" />
+				<ChevronDown className="h-4 w-4" />
 			</button>
 
 			{isOpen && (
-				<div className="absolute right-0 mt-2 min-w-max bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+				<div className="absolute right-0 z-50 mt-2 min-w-max rounded-lg border border-gray-300 bg-white shadow-lg">
 					{locales.map((locale) => (
 						<button
 							key={locale.code}
 							type="button"
 							onClick={() => handleLocaleChange(locale.code)}
-							className={`w-full px-2 py-2 text-left text-sm hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg flex items-center gap-1 ${
+							className={`flex w-full items-center gap-1 px-2 py-2 text-left text-sm transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-gray-50 ${
 								locale.code === currentLocale
-									? "bg-blue-50 text-blue-700 font-medium"
+									? "bg-blue-50 font-medium text-blue-700"
 									: "text-gray-700"
 							}`}
 						>
-							<div className="w-4 h-4 flex items-center justify-center">
+							<div className="flex h-4 w-4 items-center justify-center">
 								{locale.code === currentLocale && (
-									<Check className="w-4 h-4 text-blue-700" />
+									<Check className="h-4 w-4 text-blue-700" />
 								)}
 							</div>
 							<span>{locale.name}</span>

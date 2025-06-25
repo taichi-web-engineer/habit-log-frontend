@@ -11,8 +11,8 @@ pnpm run build        # 最適化された本番ビルドを作成
 pnpm run start        # 本番サーバーを起動
 
 # コード品質
-pnpm biome check --write     # コードベース全体をフォーマット・リント
-pnpm biome check --write <file>  # 特定のファイルをフォーマット・リント
+pnpm biome check --write --unsafe     # コードベース全体をフォーマット・リント
+pnpm biome check --write --unsafe <file>  # 特定のファイルをフォーマット・リント
 pnpm tsc --noEmit # TypeScriptのエラーチェック
 
 # テスト

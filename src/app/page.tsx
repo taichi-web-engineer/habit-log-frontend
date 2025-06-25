@@ -14,36 +14,36 @@ export default function Home() {
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
 			<Header />
 			<div className="container mx-auto px-4 py-8 lg:py-16">
-				<div className="grid lg:grid-cols-2 gap-12 items-center">
+				<div className="grid items-center gap-12 lg:grid-cols-2">
 					{/* 左側セクション */}
 					<div className="space-y-8">
 						{/* メインコピー */}
 						<div className="space-y-4">
-							<h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+							<h1 className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl">
 								{t("title")}
 							</h1>
-							<p className="text-lg text-gray-600 leading-relaxed">
+							<p className="text-gray-600 text-lg leading-relaxed">
 								{t("description")}
 							</p>
 						</div>
 
 						{/* 特徴 */}
-						<div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+						<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
 							<div className="flex items-center gap-2">
-								<CheckCircle className="w-5 h-5 text-green-500" />
-								<span className="text-sm font-medium text-gray-700">
+								<CheckCircle className="h-5 w-5 text-green-500" />
+								<span className="font-medium text-gray-700 text-sm">
 									{t("features.tracking")}
 								</span>
 							</div>
 							<div className="flex items-center gap-2">
-								<BarChart3 className="w-5 h-5 text-blue-500" />
-								<span className="text-sm font-medium text-gray-700">
+								<BarChart3 className="h-5 w-5 text-blue-500" />
+								<span className="font-medium text-gray-700 text-sm">
 									{t("features.visualization")}
 								</span>
 							</div>
 							<div className="flex items-center gap-2">
-								<HeartHandshake className="w-5 h-5 text-purple-500" />
-								<span className="text-sm font-medium text-gray-700">
+								<HeartHandshake className="h-5 w-5 text-purple-500" />
+								<span className="font-medium text-gray-700 text-sm">
 									{t("features.support")}
 								</span>
 							</div>
@@ -51,37 +51,37 @@ export default function Home() {
 
 						{/* メール入力とCTAボタン */}
 						<div className="space-y-4">
-							<div className="flex flex-col sm:flex-row gap-3">
+							<div className="flex flex-col gap-3 sm:flex-row">
 								<input
 									type="email"
 									placeholder={t("emailPlaceholder")}
-									className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+									className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
 								/>
 								<button
 									type="button"
-									className="bg-gradient-to-r from-blue-400 to-blue-700 hover:from-blue-500 hover:to-blue-800 text-white font-medium px-8 py-3 rounded-lg shadow-xl flex items-center justify-center gap-2 transition-all transform hover:scale-105 whitespace-nowrap"
+									className="flex transform items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-8 py-3 font-medium text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
 								>
 									{t("cta")}
-									<ArrowRight className="w-5 h-5" />
+									<ArrowRight className="h-5 w-5" />
 								</button>
 							</div>
 						</div>
 
 						{/* ユーザー数 */}
 						<div className="space-y-3">
-							<p className="text-sm text-gray-600">{t("userCount")}</p>
+							<p className="text-gray-600 text-sm">{t("userCount")}</p>
 							<div className="flex items-center gap-2">
-								<div className="flex -space-x-3">
+								<div className="-space-x-3 flex">
 									{[1, 2, 3, 4, 5].map((i) => (
 										<div
 											key={i}
-											className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-full border-2 border-white flex items-center justify-center text-white font-semibold"
+											className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-cyan-400 to-teal-500 font-semibold text-white"
 										>
 											{i}
 										</div>
 									))}
 								</div>
-								<span className="text-sm font-medium text-gray-700 ml-2">
+								<span className="ml-2 font-medium text-gray-700 text-sm">
 									+10,000
 								</span>
 							</div>
@@ -92,20 +92,20 @@ export default function Home() {
 					<div className="relative">
 						<div className="relative mx-auto max-w-[320px]">
 							{/* モバイルフレーム */}
-							<div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl">
-								<div className="bg-white rounded-[2.5rem] overflow-hidden">
+							<div className="relative rounded-[3rem] bg-gray-900 p-3 shadow-2xl">
+								<div className="overflow-hidden rounded-[2.5rem] bg-white">
 									{/* ステータスバー */}
-									<div className="bg-gray-900 px-6 py-2 flex justify-between items-center text-white text-xs">
+									<div className="flex items-center justify-between bg-gray-900 px-6 py-2 text-white text-xs">
 										<span>9:41</span>
 										<div className="flex gap-1">
-											<div className="w-4 h-3 bg-white rounded-sm" />
-											<div className="w-4 h-3 bg-white rounded-sm" />
-											<div className="w-4 h-3 bg-white rounded-sm" />
+											<div className="h-3 w-4 rounded-sm bg-white" />
+											<div className="h-3 w-4 rounded-sm bg-white" />
+											<div className="h-3 w-4 rounded-sm bg-white" />
 										</div>
 									</div>
 
 									{/* アプリコンテンツ */}
-									<div className="p-6 space-y-6">
+									<div className="space-y-6 p-6">
 										{/* ヘッダー */}
 										<div className="flex items-center justify-between">
 											<div className="flex items-center gap-2">
@@ -114,23 +114,23 @@ export default function Home() {
 													alt="Habit Log"
 													width={32}
 													height={32}
-													className="w-8 h-8 rounded-lg"
+													className="h-8 w-8 rounded-lg"
 												/>
 												<span className="font-bold text-gray-900">
 													Habit Log
 												</span>
 											</div>
-											<div className="text-sm text-gray-500">
+											<div className="text-gray-500 text-sm">
 												ダッシュボード
 											</div>
 										</div>
 
 										{/* 習慣カード */}
-										<div className="bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl p-4 text-white">
-											<div className="flex items-center justify-between mb-2">
+										<div className="rounded-2xl bg-gradient-to-r from-teal-500 to-cyan-500 p-4 text-white">
+											<div className="mb-2 flex items-center justify-between">
 												<span className="font-medium">腕立て伏せ</span>
 												<div className="flex items-center gap-1">
-													<div className="w-2 h-2 bg-white rounded-full" />
+													<div className="h-2 w-2 rounded-full bg-white" />
 													<span className="text-xs">今日実施予定</span>
 												</div>
 											</div>
@@ -138,12 +138,12 @@ export default function Home() {
 										</div>
 
 										{/* チャート */}
-										<div className="bg-gray-50 rounded-2xl p-4">
-											<div className="flex justify-center items-end gap-2 h-32">
+										<div className="rounded-2xl bg-gray-50 p-4">
+											<div className="flex h-32 items-end justify-center gap-2">
 												{[40, 60, 45, 80, 65, 90, 75].map((height) => (
 													<div
 														key={`chart-bar-${height}`}
-														className="w-8 bg-gradient-to-t from-blue-500 to-cyan-400 rounded-t-lg"
+														className="w-8 rounded-t-lg bg-gradient-to-t from-blue-500 to-cyan-400"
 														style={{ height: `${height}%` }}
 													/>
 												))}
@@ -153,28 +153,28 @@ export default function Home() {
 										{/* 統計 */}
 										<div className="grid grid-cols-3 gap-3">
 											<div className="text-center">
-												<div className="text-2xl font-bold text-blue-600">
+												<div className="font-bold text-2xl text-blue-600">
 													156
 												</div>
-												<div className="text-xs text-gray-500">総日数</div>
+												<div className="text-gray-500 text-xs">総日数</div>
 											</div>
 											<div className="text-center">
-												<div className="text-2xl font-bold text-green-600">
+												<div className="font-bold text-2xl text-green-600">
 													2,847
 												</div>
-												<div className="text-xs text-gray-500">総回数</div>
+												<div className="text-gray-500 text-xs">総回数</div>
 											</div>
 											<div className="text-center">
-												<div className="text-2xl font-bold text-purple-600">
+												<div className="font-bold text-2xl text-purple-600">
 													12
 												</div>
-												<div className="text-xs text-gray-500">復活回数</div>
+												<div className="text-gray-500 text-xs">復活回数</div>
 											</div>
 										</div>
 
 										{/* フローティングボタン */}
 										<div className="flex justify-end">
-											<div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-full flex items-center justify-center text-white shadow-lg">
+											<div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 text-white shadow-lg">
 												<span className="text-2xl">+</span>
 											</div>
 										</div>
@@ -184,16 +184,16 @@ export default function Home() {
 						</div>
 
 						{/* ドットインジケーター */}
-						<div className="flex justify-center gap-2 mt-8">
-							<div className="w-2 h-2 bg-blue-500 rounded-full" />
-							<div className="w-2 h-2 bg-gray-300 rounded-full" />
-							<div className="w-2 h-2 bg-gray-300 rounded-full" />
-							<div className="w-2 h-2 bg-gray-300 rounded-full" />
+						<div className="mt-8 flex justify-center gap-2">
+							<div className="h-2 w-2 rounded-full bg-blue-500" />
+							<div className="h-2 w-2 rounded-full bg-gray-300" />
+							<div className="h-2 w-2 rounded-full bg-gray-300" />
+							<div className="h-2 w-2 rounded-full bg-gray-300" />
 						</div>
 
 						{/* ターゲットアイコン */}
-						<div className="absolute -bottom-4 -right-4 w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-xl">
-							<CheckCircle className="w-10 h-10 text-white" />
+						<div className="-bottom-4 -right-4 absolute flex h-20 w-20 items-center justify-center rounded-full bg-green-500 shadow-xl">
+							<CheckCircle className="h-10 w-10 text-white" />
 						</div>
 					</div>
 				</div>
