@@ -10,14 +10,13 @@ import { Header } from "@/components/header";
 
 export default function Home() {
 	const t = useTranslations("Home");
+
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
 			<Header />
 			<div className="container mx-auto px-4 py-8 lg:py-16">
 				<div className="grid items-center gap-12 lg:grid-cols-2">
-					{/* 左側セクション */}
 					<div className="space-y-8">
-						{/* メインコピー */}
 						<div className="space-y-4">
 							<h1 className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl">
 								{t("title")}
@@ -26,8 +25,6 @@ export default function Home() {
 								{t("description")}
 							</p>
 						</div>
-
-						{/* 特徴 */}
 						<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
 							<div className="flex items-center gap-2">
 								<CheckCircle className="h-5 w-5 text-green-500" />
@@ -48,8 +45,6 @@ export default function Home() {
 								</span>
 							</div>
 						</div>
-
-						{/* メール入力とCTAボタン */}
 						<div className="space-y-4">
 							<div className="flex flex-col gap-3 sm:flex-row">
 								<input
@@ -66,8 +61,6 @@ export default function Home() {
 								</button>
 							</div>
 						</div>
-
-						{/* ユーザー数 */}
 						<div className="space-y-3">
 							<p className="text-gray-600 text-sm">{t("userCount")}</p>
 							<div className="flex items-center gap-2">
@@ -87,14 +80,10 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-
-					{/* 右側セクション - モバイルモックアップ */}
 					<div className="relative">
 						<div className="relative mx-auto max-w-[320px]">
-							{/* モバイルフレーム */}
 							<div className="relative rounded-[3rem] bg-gray-900 p-3 shadow-2xl">
 								<div className="overflow-hidden rounded-[2.5rem] bg-white">
-									{/* ステータスバー */}
 									<div className="flex items-center justify-between bg-gray-900 px-6 py-2 text-white text-xs">
 										<span>9:41</span>
 										<div className="flex gap-1">
@@ -103,10 +92,7 @@ export default function Home() {
 											<div className="h-3 w-4 rounded-sm bg-white" />
 										</div>
 									</div>
-
-									{/* アプリコンテンツ */}
 									<div className="space-y-6 p-6">
-										{/* ヘッダー */}
 										<div className="flex items-center justify-between">
 											<div className="flex items-center gap-2">
 												<Image
@@ -124,8 +110,6 @@ export default function Home() {
 												ダッシュボード
 											</div>
 										</div>
-
-										{/* 習慣カード */}
 										<div className="rounded-2xl bg-gradient-to-r from-teal-500 to-cyan-500 p-4 text-white">
 											<div className="mb-2 flex items-center justify-between">
 												<span className="font-medium">腕立て伏せ</span>
@@ -136,8 +120,6 @@ export default function Home() {
 											</div>
 											<div className="text-sm opacity-90">直近の記録</div>
 										</div>
-
-										{/* チャート */}
 										<div className="rounded-2xl bg-gray-50 p-4">
 											<div className="flex h-32 items-end justify-center gap-2">
 												{[40, 60, 45, 80, 65, 90, 75].map((height) => (
@@ -149,8 +131,6 @@ export default function Home() {
 												))}
 											</div>
 										</div>
-
-										{/* 統計 */}
 										<div className="grid grid-cols-3 gap-3">
 											<div className="text-center">
 												<div className="font-bold text-2xl text-blue-600">
@@ -171,8 +151,6 @@ export default function Home() {
 												<div className="text-gray-500 text-xs">復活回数</div>
 											</div>
 										</div>
-
-										{/* フローティングボタン */}
 										<div className="flex justify-end">
 											<div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 text-white shadow-lg">
 												<span className="text-2xl">+</span>
@@ -182,16 +160,12 @@ export default function Home() {
 								</div>
 							</div>
 						</div>
-
-						{/* ドットインジケーター */}
 						<div className="mt-8 flex justify-center gap-2">
 							<div className="h-2 w-2 rounded-full bg-blue-500" />
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 						</div>
-
-						{/* ターゲットアイコン */}
 						<div className="-bottom-4 -right-4 absolute flex h-20 w-20 items-center justify-center rounded-full bg-green-500 shadow-xl">
 							<CheckCircle className="h-10 w-10 text-white" />
 						</div>

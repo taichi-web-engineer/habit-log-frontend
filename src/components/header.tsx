@@ -8,7 +8,6 @@ export function Header() {
 	return (
 		<header className="w-full px-4 py-4">
 			<div className="container mx-auto flex items-center justify-between">
-				{/* ロゴ */}
 				<div className="flex items-center gap-3">
 					<Image
 						src="/icon.svg"
@@ -19,13 +18,8 @@ export function Header() {
 					/>
 					<span className="font-bold text-2xl text-gray-900">Habit Log</span>
 				</div>
-
-				{/* 右側のボタン群 */}
 				<div className="flex items-center gap-4">
-					{/* 言語切替 */}
 					<LanguageSwitcher />
-
-					{/* ログインボタン */}
 					<button
 						type="button"
 						className="flex transform items-center justify-center rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-3 py-2 text-sm text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
