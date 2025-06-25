@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Header } from "@/components/header";
 import { APP_NAME } from "@/config/site";
+import "@/styles/components.css";
 
 export default function Home() {
 	const translations = useTranslations("Home");
@@ -55,7 +56,7 @@ export default function Home() {
 								/>
 								<button
 									type="button"
-									className="flex transform items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-8 py-3 font-medium text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
+									className="btn-blue-gradation flex transform items-center justify-center gap-2 whitespace-nowrap px-8 py-3 font-medium"
 								>
 									{translations("cta")}
 									<ArrowRight className="h-5 w-5" />

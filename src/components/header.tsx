@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { APP_NAME } from "@/config/site";
 import { LanguageSwitcher } from "./language-switcher";
+import "@/styles/components.css";
 
 export function Header() {
 	const translations = useTranslations("Home");
@@ -27,7 +28,7 @@ export function Header() {
 					<LanguageSwitcher />
 					<Link
 						href="/login"
-						className="rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-3 py-2 font-medium text-sm text-white shadow-xl transition-[transform,colors] hover:scale-105 hover:from-blue-500 hover:to-blue-800 motion-safe:transform-gpu"
+						className="btn-blue-gradation px-3 py-2 font-medium text-sm"
 					>
 						{translations("login")}
 					</Link>
