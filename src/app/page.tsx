@@ -7,9 +7,10 @@ import {
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Header } from "@/components/header";
+import { APP_NAME } from "@/config/site";
 
 export default function Home() {
-	const t = useTranslations("Home");
+	const translations = useTranslations("Home");
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -19,29 +20,29 @@ export default function Home() {
 					<div className="space-y-8">
 						<div className="space-y-4">
 							<h1 className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl">
-								{t("title")}
+								{translations("title")}
 							</h1>
 							<p className="text-gray-600 text-lg leading-relaxed">
-								{t("description")}
+								{translations("description", { appName: APP_NAME })}
 							</p>
 						</div>
 						<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
 							<div className="flex items-center gap-2">
 								<CheckCircle className="h-5 w-5 text-green-500" />
 								<span className="font-medium text-gray-700 text-sm">
-									{t("features.tracking")}
+									{translations("features.tracking")}
 								</span>
 							</div>
 							<div className="flex items-center gap-2">
 								<BarChart3 className="h-5 w-5 text-blue-500" />
 								<span className="font-medium text-gray-700 text-sm">
-									{t("features.visualization")}
+									{translations("features.visualization")}
 								</span>
 							</div>
 							<div className="flex items-center gap-2">
 								<HeartHandshake className="h-5 w-5 text-purple-500" />
 								<span className="font-medium text-gray-700 text-sm">
-									{t("features.support")}
+									{translations("features.support")}
 								</span>
 							</div>
 						</div>
@@ -49,20 +50,22 @@ export default function Home() {
 							<div className="flex flex-col gap-3 sm:flex-row">
 								<input
 									type="email"
-									placeholder={t("emailPlaceholder")}
+									placeholder={translations("emailPlaceholder")}
 									className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
 								/>
 								<button
 									type="button"
 									className="flex transform items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-8 py-3 font-medium text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
 								>
-									{t("cta")}
+									{translations("cta")}
 									<ArrowRight className="h-5 w-5" />
 								</button>
 							</div>
 						</div>
 						<div className="space-y-3">
-							<p className="text-gray-600 text-sm">{t("userCount")}</p>
+							<p className="text-gray-600 text-sm">
+								{translations("userCount")}
+							</p>
 							<div className="flex items-center gap-2">
 								<div className="-space-x-3 flex">
 									{[1, 2, 3, 4, 5].map((i) => (

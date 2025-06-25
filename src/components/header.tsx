@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./language-switcher";
 
@@ -23,12 +24,12 @@ export function Header() {
 					aria-label={translations("headerNav")}
 				>
 					<LanguageSwitcher />
-					<button
-						type="button"
+					<Link
+						href="/login"
 						className="flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-400 to-blue-700 px-3 py-2 text-sm text-white shadow-xl transition-all hover:scale-105 hover:from-blue-500 hover:to-blue-800"
 					>
 						{translations("login")}
-					</button>
+					</Link>
 				</nav>
 			</div>
 		</header>
