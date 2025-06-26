@@ -3,7 +3,7 @@
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import { LOCALE_KEYS, LOCALES } from "@/features/i18n/config";
+import { LOCALE_KEYS, LOCALES, type LocaleCode } from "@/features/i18n/config";
 import { setLocale } from "@/features/i18n/set-locale";
 
 export function LanguageSwitcher() {
@@ -38,9 +38,9 @@ export function LanguageSwitcher() {
 		};
 	}, [isOpen]);
 
-	const handleLocaleChange = async (newLocale: string) => {
+	const handleLocaleChange = async (newLocaleCode: LocaleCode) => {
 		setIsOpen(false);
-		await setLocale(newLocale as "ja-JP" | "en-US");
+		await setLocale(newLocaleCode);
 	};
 
 	return (
