@@ -1,5 +1,5 @@
-import { DEFAULT_LOCALE_CODE, LOCALES } from "@/i18n/config";
-import { determineLocale } from "@/i18n/request";
+import { DEFAULT_LOCALE_CODE, LOCALES } from "@/features/i18n/config";
+import { determineLocale } from "@/features/i18n/request";
 
 type TestCase = readonly [
 	string, // テストタイトル

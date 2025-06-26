@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { LOCALE_TEXT, type LocaleCode } from "@/i18n/config";
+import { LOCALE_TEXT, type LocaleCode } from "@/features/i18n/config";
 
 export async function setLocale(locale: LocaleCode) {
 	(await cookies()).set(LOCALE_TEXT, locale, {

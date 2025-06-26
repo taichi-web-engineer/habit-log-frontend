@@ -3,8 +3,8 @@
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import { setLocale } from "@/actions/set-locale";
-import { LOCALE_KEYS, LOCALES } from "@/i18n/config";
+import { LOCALE_KEYS, LOCALES } from "@/features/i18n/config";
+import { setLocale } from "@/features/i18n/set-locale";
 
 export function LanguageSwitcher() {
 	const currentLocale = useLocale();

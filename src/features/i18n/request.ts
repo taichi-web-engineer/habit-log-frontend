@@ -7,7 +7,7 @@ import {
 	isLocaleCode,
 	LOCALE_CODES,
 	LOCALE_TEXT,
-} from "@/i18n/config";
+} from "@/features/i18n/config";
 
 export default getRequestConfig(async () => {
 	const locale = await negotiateLocale();
