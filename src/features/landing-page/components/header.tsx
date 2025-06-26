@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { APP_NAME } from "@/config/site";
-import { LanguageSwitcher } from "./language-switcher";
 import "@/styles/components.css";
+import { LanguageSwitcher } from "@/features/landing-page/components/language-switcher";
 
 export function Header() {
 	const translations = useTranslations("Home");

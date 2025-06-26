@@ -6,8 +6,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Header } from "@/components/header";
 import { APP_NAME } from "@/config/site";
+import { Header } from "@/features/landing-page/components/header";
 import "@/styles/components.css";
 
 export default function Home() {
