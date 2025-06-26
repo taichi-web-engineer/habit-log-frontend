@@ -9,36 +9,11 @@ import {
 	LOCALE_TEXT,
 } from "@/i18n/config";
 
-export function determineLocale(
-	cookieLocale: string | undefined,
-	headerAcceptLanguage: string | null,
-) {
-	if (isLocaleCode(cookieLocale)) return cookieLocale;
-
-	if (headerAcceptLanguage === null) return DEFAULT_LOCALE_CODE;
-
-	return resolveAcceptLanguage(
-		headerAcceptLanguage,
-		LOCALE_CODES,
-		DEFAULT_LOCALE_CODE,
-	);
-}
-
-async function negotiateLocale() {
-	const cookieStore = await cookies();
-	const headerStore = await headers();
-
-	return determineLocale(
-		cookieStore.get(LOCALE_TEXT)?.value,
-		headerStore.get("accept-language"),
-	);
-}
-
 export default getRequestConfig(async () => {
 	const locale = await negotiateLocale();
 	let messages: AbstractIntlMessages = {};
 	try {
-		// ↓ビルド時解析のためにinclude ヒントを付与
+		// ビルド時解析のためにinclude ヒントを付与
 		messages = (
 			await import(
 				/* webpackInclude: /messages\/.*\.json$/ */
@@ -53,3 +28,28 @@ export default getRequestConfig(async () => {
 	}
 	return { locale, messages };
 });
+
+async function negotiateLocale() {
+	const cookieStore = await cookies();
+	const headerStore = await headers();
+
+	return determineLocale(
+		cookieStore.get(LOCALE_TEXT)?.value,
+		headerStore.get("accept-language"),
+	);
+}
+
+export function determineLocale(
+	cookieLocale: string | undefined,
+	headerAcceptLanguage: string | null,
+) {
+	if (isLocaleCode(cookieLocale)) return cookieLocale;
+
+	if (headerAcceptLanguage === null) return DEFAULT_LOCALE_CODE;
+
+	return resolveAcceptLanguage(
+		headerAcceptLanguage,
+		LOCALE_CODES,
+		DEFAULT_LOCALE_CODE,
+	);
+}
