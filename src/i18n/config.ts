@@ -5,6 +5,8 @@ export const LOCALES = {
 	EN: { code: "en-US", name: "English" },
 } as const;
 
+export const LOCALE_KEYS = Object.keys(LOCALES) as (keyof typeof LOCALES)[];
+
 export const DEFAULT_LOCALE_CODE = LOCALES.JA.code;
 
 export type LocaleCode = (typeof LOCALES)[keyof typeof LOCALES]["code"];

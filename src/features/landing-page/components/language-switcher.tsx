@@ -4,11 +4,7 @@ import { Check, ChevronDown, Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { setLocale } from "@/actions/set-locale";
-
-const locales = [
-	{ code: "ja-JP", name: "日本語" },
-	{ code: "en-US", name: "English" },
-] as const;
+import { LOCALE_KEYS, LOCALES } from "@/i18n/config";
 
 export function LanguageSwitcher() {
 	const currentLocale = useLocale();
@@ -60,25 +56,28 @@ export function LanguageSwitcher() {
 
 			{isOpen && (
 				<div className="absolute right-0 z-50 mt-2 min-w-max rounded-lg border border-gray-300 bg-white shadow-lg">
-					{locales.map((locale) => (
-						<button
-							key={locale.code}
-							type="button"
-							onClick={() => handleLocaleChange(locale.code)}
-							className={`flex w-full items-center gap-1 px-2 py-2 text-left text-sm transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-gray-50 ${
-								locale.code === currentLocale
-									? "bg-blue-50 font-medium text-blue-700"
-									: "text-gray-700"
-							}`}
-						>
-							<div className="flex h-4 w-4 items-center justify-center">
-								{locale.code === currentLocale && (
-									<Check className="h-4 w-4 text-blue-700" />
-								)}
-							</div>
-							<span>{locale.name}</span>
-						</button>
-					))}
+					{LOCALE_KEYS.map((key) => {
+						const { code, name } = LOCALES[key];
+						const isActive = code === currentLocale;
+
+						return (
+							<button
+								key={key}
+								type="button"
+								onClick={() => handleLocaleChange(code)}
+								className={`flex w-full items-center gap-1 px-2 py-2 text-left text-sm transition-colors first:rounded-t-lg last:rounded-b-lg hover:bg-gray-50 ${
+									isActive
+										? "bg-blue-50 font-medium text-blue-700"
+										: "text-gray-700"
+								}`}
+							>
+								<div className="flex h-4 w-4 items-center justify-center">
+									{isActive && <Check className="h-4 w-4 text-blue-700" />}
+								</div>
+								<span>{name}</span>
+							</button>
+						);
+					})}
 				</div>
 			)}
 		</div>
