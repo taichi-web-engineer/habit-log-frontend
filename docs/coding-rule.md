@@ -9,7 +9,6 @@
 - JSXコメントは不要
 - SEO対策のため、セマンティックHTMLを徹底する
 - `px-4 py-4`のようなxとyが同じ値のCSSは冗長なので`p-4`のようにまとめる
-- `src/styles/components.css`のtailwindcss共通クラスを活用する
 
 ## 実装後のチェック
 - `pnpm tsc --noEmit`でエラーが出ないことを確認

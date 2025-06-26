@@ -27,6 +27,7 @@ pnpm test                    # Jestでテストを実行
 - `/src/components/`: 再利用可能なReactコンポーネント
 - `/src/i18n/`: 国際化の設定とメッセージ
 - `/src/lib/`: ユーティリティ関数と共有コード
+- `/src/styles/components.css`: 汎用Tailwind CSSクラス
 - `/types/`: TypeScript型定義
 - `@/*`: パスエイリアスは `/src/*` にマップ
 
