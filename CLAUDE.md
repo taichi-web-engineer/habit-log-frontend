@@ -11,21 +11,13 @@ pnpm run build        # 最適化された本番ビルドを作成
 pnpm run start        # 本番サーバーを起動
 
 # コード品質
-pnpm biome check --write     # コードベース全体をフォーマット・リント
-pnpm biome check --write <file>  # 特定のファイルをフォーマット・リント
+pnpm biome check --write --unsafe     # コードベース全体をフォーマット・リント
+pnpm biome check --write --unsafe <file>  # 特定のファイルをフォーマット・リント
 pnpm tsc --noEmit # TypeScriptのエラーチェック
 
 # テスト
 pnpm test                    # Jestでテストを実行
 ```
-
-## コード品質ツール
-- **Biome**: リントとフォーマットの両方に使用
-  - Lefthookのpre-commitフックでステージングされたファイルに自動実行
-  - コミット前に実行してコード品質を確保
-- **Jest**: JavaScript/TypeScriptテストフレームワーク
-  - ユニットテストとインテグレーションテストに使用
-  - `pnpm test` でテストスイートを実行
 
 ## アーキテクチャ & 主要パターン
 
@@ -35,16 +27,9 @@ pnpm test                    # Jestでテストを実行
 - `/src/components/`: 再利用可能なReactコンポーネント
 - `/src/i18n/`: 国際化の設定とメッセージ
 - `/src/lib/`: ユーティリティ関数と共有コード
+- `/src/styles/components.css`: 汎用Tailwind CSSクラス
 - `/types/`: TypeScript型定義
-- `@/*` パスエイリアスは `/src/*` にマップ
-
-### 国際化 (i18n)
-- サーバー側とクライアント側の翻訳に `next-intl` を使用
-- サポートロケール: `en-US` (英語) と `ja-JP` (日本語)
-- デフォルトロケール: `ja-JP`
-- メッセージは `/src/i18n/messages/{locale}.json` に保存
-- サーバーアクションはロケール設定をクッキーで永続化
-- コンポーネントは `useTranslations` フックで翻訳にアクセス可能
+- `@/*`: パスエイリアスは `/src/*` にマップ
 
 ### スタイリング & UIコンポーネント
 - スタイリングにTailwind CSS v4を使用
@@ -58,16 +43,18 @@ pnpm test                    # Jestでテストを実行
 - サーバーアクションがフォーム送信を処理
 - Zodスキーマによる型安全なフォーム処理
 
-## 開発ワークフロー
-1. **作業開始前**: `pnpm install` を実行して依存関係を最新に保つ
-2. **開発中**: `pnpm run dev` でホットリロードを使用
-3. **コミット前**: Lefthookがステージングされたファイルに自動でBiomeを実行
-4. **手動フォーマット**: ファイルやディレクトリに `pnpm biome check --write` を実行
+### 国際化 (i18n)
+- サーバー側とクライアント側の翻訳に `next-intl` を使用
+- サポートロケール: `en-US` (英語) と `ja-JP` (日本語)
+- デフォルトロケール: `ja-JP`
+- メッセージは `/src/i18n/messages/{locale}.json` に保存
+- サーバーアクションはロケール設定をクッキーで永続化
+- コンポーネントは `useTranslations` フックで翻訳にアクセス可能
 
-## Git コミット規則
-- **コミットメッセージは日本語で記載**
-- 変更内容を簡潔かつ明確に記述
-- 例: `機能追加: ユーザー認証機能の実装`、`バグ修正: ロケール切り替え時のエラーを解消`
+## 開発手順
+- 開発ドキュメントはMCPサーバーのcotext7を使った`use context7`で常に最新を参照する
+- コーディングルールは`docs/coding-rule.md`に従う
+- Unit Testルールは`docs/unit-test-rule.md`に従う
 
 ## 重要な技術的詳細
 - **React Server Components**: デフォルトのコンポーネントはサーバーコンポーネント; クライアントコンポーネントには `"use client"` ディレクティブを使用

@@ -4,4 +4,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig: NextConfig = {
 	/* config options here */
 };
-export default createNextIntlPlugin()(nextConfig);
+export default createNextIntlPlugin("./src/features/i18n/request.ts")(
+	nextConfig,
+);

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer components {
+  .btn-blue-gradation {
+    @apply rounded-lg
+           bg-gradient-to-r from-blue-400 to-blue-700
+          text-white
+           shadow-xl
+           transition-[transform,colors]
+           hover:scale-105 hover:from-blue-500 hover:to-blue-800
+           motion-safe:transform-gpu;
+  }
+}

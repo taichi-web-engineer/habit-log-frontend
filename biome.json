@@ -27,7 +27,16 @@
 		"rules": {
 			"recommended": true,
 			"correctness": {
-				"noUnusedImports": "error"
+				"noUnusedImports": "error",
+				"noUnusedVariables": "warn"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"level": "warn",
+					"options": {
+						"functions": ["clsx", "cva", "tw", "tw.*"]
+					}
+				}
 			},
 			"style": {
 				"noParameterAssign": "error",

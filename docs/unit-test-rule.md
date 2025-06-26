@@ -93,32 +93,6 @@ describe("関数名", () => {
 
 ## 例：i18n/request.test.ts
 
-```typescript
-// 型定義
-type TestCase = readonly [
-  string,                    // テストタイトル
-  string | undefined,        // cookieLocale
-  string | null,            // headerAcceptLanguage
-  string,                   // expected
-];
-
-// テストケース
-const testCases = [
-  // 正常系：クッキー優先
-  ["cookie:en、accept-language:ja,en;q=0.9", "en", "ja,en;q=0.9", "en"],
-  
-  // エッジケース：無効な値
-  ["想定外のcookie", "123", "ja,en;q=0.9", DEFAULT_LOCALE],
-] satisfies readonly TestCase[];
-
-// テスト実行
-describe("determineLocale", () => {
-  test.each(testCases)("%s", (_, cookieLocale, acceptHeader, expected) => {
-    expect(determineLocale(cookieLocale, acceptHeader)).toBe(expected);
-  });
-});
-```
-
 ## テスト実装後のチェック
 - `pnpm tsc --noEmit`でエラーが出ないことを確認
-- `pnpm biome check --write`でリントと型チェックを通過することを確認
+- `pnpm biome check --write --unsafe`でリントと型チェックを通過することを確認
