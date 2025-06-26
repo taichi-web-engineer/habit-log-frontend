@@ -3,24 +3,24 @@ import type { AbstractIntlMessages } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 import { resolveAcceptLanguage } from "resolve-accept-language";
 import {
-	DEFAULT_LOCALE,
-	isLocale,
+	DEFAULT_LOCALE_CODE,
+	isLocaleCode,
+	LOCALE_CODES,
 	LOCALE_TEXT,
-	LOCALE_VALUES,
 } from "@/i18n/config";
 
 export function determineLocale(
 	cookieLocale: string | undefined,
 	headerAcceptLanguage: string | null,
 ) {
-	if (isLocale(cookieLocale)) return cookieLocale;
+	if (isLocaleCode(cookieLocale)) return cookieLocale;
 
-	if (headerAcceptLanguage === null) return DEFAULT_LOCALE;
+	if (headerAcceptLanguage === null) return DEFAULT_LOCALE_CODE;
 
 	return resolveAcceptLanguage(
 		headerAcceptLanguage,
-		LOCALE_VALUES,
-		DEFAULT_LOCALE,
+		LOCALE_CODES,
+		DEFAULT_LOCALE_CODE,
 	);
 }
 
