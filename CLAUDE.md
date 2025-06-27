@@ -22,13 +22,20 @@ pnpm test                    # Jestでテストを実行
 ## アーキテクチャ & 主要パターン
 
 ### ディレクトリ構造
+プロジェクトは機能ベースアーキテクチャを採用:
 - `/src/app/`: Next.js App Routerのページとレイアウト
-- `/src/actions/`: サーバーアクション（例：ロケール切り替え）
-- `/src/components/`: 再利用可能なReactコンポーネント
-- `/src/i18n/`: 国際化の設定とメッセージ
+- `/src/config/`: アプリケーション設定
+- `/src/features/`: 機能ベースモジュール
+  - `/i18n/`: 国際化機能（設定、メッセージ、テスト）
+  - `/landing-page/`: ランディングページ機能とそのコンポーネント
+- `/src/hooks/`: カスタムReactフック
 - `/src/lib/`: ユーティリティ関数と共有コード
-- `/src/styles/components.css`: 汎用Tailwind CSSクラス
-- `/types/`: TypeScript型定義
+- `/src/styles/`: グローバルスタイル
+- `/src/ui/`: UIコンポーネントライブラリ（shadcn/ui）
+- `/types/`: グローバルTypeScript型定義
+- `/__mocks__/`: テスト用モックファイル
+- `/docs/`: プロジェクトドキュメント
+- `/public/`: 静的アセット（PWAアイコン等）
 - `@/*`: パスエイリアスは `/src/*` にマップ
 
 ### スタイリング & UIコンポーネント
@@ -47,12 +54,12 @@ pnpm test                    # Jestでテストを実行
 - サーバー側とクライアント側の翻訳に `next-intl` を使用
 - サポートロケール: `en-US` (英語) と `ja-JP` (日本語)
 - デフォルトロケール: `ja-JP`
-- メッセージは `/src/i18n/messages/{locale}.json` に保存
+- メッセージは `/src/features/i18n/messages/{locale}.json` に保存
 - サーバーアクションはロケール設定をクッキーで永続化
 - コンポーネントは `useTranslations` フックで翻訳にアクセス可能
 
 ## 開発手順
-- 開発ドキュメントはMCPサーバーのcotext7を使った`use context7`で常に最新を参照する
+- 開発は常にMCPサーバーの`context7`を使用する
 - コーディングルールは`docs/coding-rule.md`に従う
 - Unit Testルールは`docs/unit-test-rule.md`に従う
 
