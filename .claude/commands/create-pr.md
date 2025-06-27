@@ -1,1 +1,1 @@
-現在のブランチから`develop`へのPRを作成してください。 ultrathink
+現在のブランチから`develop`へのPRを日本語で作成してください。 ultrathink
