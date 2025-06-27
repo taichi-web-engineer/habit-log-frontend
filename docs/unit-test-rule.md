@@ -95,4 +95,4 @@ describe("関数名", () => {
 
 ## テスト実装後のチェック
 - `pnpm tsc --noEmit`でエラーが出ないことを確認
-- `pnpm biome check --write --unsafe`でリントと型チェックを通過することを確認
+- `pnpm format`でリントと型チェックを通過することを確認

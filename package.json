@@ -7,6 +7,8 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
+		"lint": "biome check --error-on-warnings",
+		"format": "biome check --error-on-warnings --write --unsafe",
 		"test": "jest",
 		"test:ci": "jest --runInBand"
 	},

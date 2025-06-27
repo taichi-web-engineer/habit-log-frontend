@@ -4,19 +4,19 @@ Next.js 15 (App Router)、React 19、TypeScript、Tailwind CSS v4で構築され
 ## 必須コマンド
 ```bash
 # 開発
-pnpm run dev          # Turbopackで開発サーバーを起動 http://localhost:3000
+pnpm run dev # Turbopackで開発サーバーを起動 http://localhost:3000
 
 # ビルド & 本番環境
-pnpm run build        # 最適化された本番ビルドを作成
-pnpm run start        # 本番サーバーを起動
+pnpm run build # 最適化された本番ビルドを作成
+pnpm run start # 本番サーバーを起動
 
 # コード品質
-pnpm biome check --write --unsafe     # コードベース全体をフォーマット・リント
-pnpm biome check --write --unsafe <file>  # 特定のファイルをフォーマット・リント
+pnpm lint # コードベース全体をリント
+pnpm format # コードベース全体をリント・フォーマット
 pnpm tsc --noEmit # TypeScriptのエラーチェック
 
 # テスト
-pnpm test                    # Jestでテストを実行
+pnpm test # Jestでテストを実行
 ```
 
 ## アーキテクチャ & 主要パターン
