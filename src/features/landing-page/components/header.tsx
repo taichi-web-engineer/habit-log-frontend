@@ -21,10 +21,7 @@ export function Header() {
 					/>
 					<span className="font-bold text-2xl text-gray-900">{APP_NAME}</span>
 				</Link>
-				<nav
-					className="flex items-center gap-4"
-					aria-label={translations("headerNav")}
-				>
+				<nav className="flex items-center gap-4">
 					<LanguageSwitcher />
 					<Link
 						href="/login"
