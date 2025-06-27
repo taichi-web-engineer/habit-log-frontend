@@ -36,7 +36,8 @@
 					"options": {
 						"functions": ["clsx", "cva", "tw", "tw.*"]
 					}
-				}
+				},
+				"noReactPropAssign": "error"
 			},
 			"style": {
 				"noParameterAssign": "error",
