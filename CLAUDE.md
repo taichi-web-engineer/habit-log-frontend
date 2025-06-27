@@ -59,9 +59,10 @@ pnpm test # Jestでテストを実行
 - コンポーネントは `useTranslations` フックで翻訳にアクセス可能
 
 ## 開発手順
-- 開発は常にMCPサーバーの`context7`を使用する
+- 常にContext7 MCPを使って最新の公式ドキュメントを参照する
 - コーディングルールは`docs/coding-rule.md`に従う
 - Unit Testルールは`docs/unit-test-rule.md`に従う
+- 実装後はPlaywright MCPで実装した機能を一通り試してエラーがないか確認する
 
 ## 重要な技術的詳細
 - **React Server Components**: デフォルトのコンポーネントはサーバーコンポーネント; クライアントコンポーネントには `"use client"` ディレクティブを使用
