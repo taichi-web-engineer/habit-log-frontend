@@ -9,8 +9,10 @@ import { useTranslations } from "next-intl";
 import { APP_NAME } from "@/config/site";
 import { Header } from "@/features/landing-page/components/header";
 import "@/styles/components.css";
+import { useId } from "react";
 
 export default function Home() {
+	const emailId = useId();
 	const translations = useTranslations("Home");
 
 	return (
@@ -50,6 +52,7 @@ export default function Home() {
 						<div className="space-y-4">
 							<div className="flex flex-col gap-3 sm:flex-row">
 								<input
+									id={emailId}
 									type="email"
 									placeholder={translations("emailPlaceholder")}
 									className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"

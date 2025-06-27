@@ -41,7 +41,9 @@ export function LanguageSwitcher() {
 					return (
 						<DropdownMenuItem
 							key={key}
-							onClick={() => handleLocaleChange(code)}
+							onClick={() => {
+								handleLocaleChange(code);
+							}}
 							className={isActive ? "font-medium text-blue-700" : ""}
 							disabled={isPending}
 						>
