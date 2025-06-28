@@ -11,11 +11,15 @@ import { Button } from "@/ui/button";
 import { Input } from "@/ui/input";
 import { Label } from "@/ui/label";
 
-const subscribeSchema = z.object({
-	email: z.string().email({
-		message: "メールアドレスの形式が正しくありません",
-	}),
-});
+const createSubscribeSchema = (
+	emailRequiredMessage: string,
+	emailInvalidMessage: string,
+) =>
+	z.object({
+		email: z.string({ required_error: emailRequiredMessage }).email({
+			message: emailInvalidMessage,
+		}),
+	});
 
 export function EmailCTA() {
 	const emailId = useId();
@@ -23,6 +27,11 @@ export function EmailCTA() {
 	const [lastResult, action, isPending] = useActionState(
 		subscribeEmail,
 		undefined,
+	);
+
+	const subscribeSchema = createSubscribeSchema(
+		translations("emailRequired"),
+		translations("emailInvalid"),
 	);
 
 	const [form, fields] = useForm({
@@ -53,6 +62,7 @@ export function EmailCTA() {
 						type="email"
 						placeholder={translations("emailPlaceholder")}
 						className="h-auto py-3"
+						defaultValue={fields.email.initialValue}
 						aria-invalid={!fields.email.valid || undefined}
 						aria-describedby={
 							!fields.email.valid ? fields.email.errorId : undefined
@@ -69,7 +79,7 @@ export function EmailCTA() {
 				</div>
 				<Button type="submit" variant="gradient" size="xl" disabled={isPending}>
 					{isPending ? (
-						"送信中..."
+						translations("submitting")
 					) : (
 						<>
 							{translations("cta")}
