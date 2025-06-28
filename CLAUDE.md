@@ -44,6 +44,9 @@ pnpm test # Jestでテストを実行
 - コンポーネントのバリアントは `class-variance-authority` (cva) で管理
 - アイコンは `lucide-react` を利用
 - ユーティリティクラスは `clsx` とカスタム `cn()` ヘルパーで結合
+- ユーザーに表示される文字列は必ずi18nで国際化対応
+- JSXコメントは不要
+- SEO対策のため、セマンティックHTMLを徹底する
 
 ### フォーム処理
 - フォームは `@conform-to/react` と `@conform-to/zod` でバリデーション
