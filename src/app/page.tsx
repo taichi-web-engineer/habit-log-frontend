@@ -1,22 +1,14 @@
-import {
-	ArrowRight,
-	BarChart3,
-	CheckCircle,
-	HeartHandshake,
-	Plus,
-} from "lucide-react";
+import { BarChart3, CheckCircle, HeartHandshake, Plus } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useId } from "react";
 import { APP_NAME } from "@/config/site";
+import { EmailCTA } from "@/features/landing-page/components/email-cta";
 import { Header } from "@/features/landing-page/components/header";
 import { Badge } from "@/ui/badge";
 import { Button } from "@/ui/button";
 import { Card, CardContent } from "@/ui/card";
-import { Input } from "@/ui/input";
 
 export default function Home() {
-	const emailId = useId();
 	const translations = useTranslations("Home");
 
 	return (
@@ -54,18 +46,7 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="space-y-4">
-							<div className="flex flex-col gap-3 sm:flex-row">
-								<Input
-									id={emailId}
-									type="email"
-									placeholder={translations("emailPlaceholder")}
-									className="h-auto flex-1 py-3"
-								/>
-								<Button variant="gradient" size="xl">
-									{translations("cta")}
-									<ArrowRight />
-								</Button>
-							</div>
+							<EmailCTA />
 						</div>
 						<div className="space-y-3">
 							<p className="text-gray-600 text-sm">
