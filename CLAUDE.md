@@ -72,3 +72,4 @@ pnpm test # Jestでテストを実行
 - **TypeScript**: strictモードが有効; すべてのコードに適切な型付けを確保
 - **Next.js設定**: `next.config.ts` のカスタム設定にはi18nプラグイン設定を含む
 - **環境**: pnpmパッケージマネージャーでの開発をサポート
+- React Compilerでパフォーマンスは最適化される
