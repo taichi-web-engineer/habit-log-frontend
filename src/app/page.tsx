@@ -190,8 +190,8 @@ export default function Home() {
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 						</div>
-						<Card className="-bottom-4 -right-4 absolute flex h-20 w-20 items-center justify-center rounded-full border-none bg-green-500 shadow-xl">
-							<CheckCircle className="h-10 w-10 text-white" />
+						<Card className="-bottom-4 -right-4 absolute flex h-12 w-12 items-center justify-center rounded-full border-none bg-green-500 shadow-xl">
+							<CheckCircle className="h-6 w-6 text-white" />
 						</Card>
 					</div>
 				</div>
