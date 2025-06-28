@@ -3,13 +3,17 @@ import {
 	BarChart3,
 	CheckCircle,
 	HeartHandshake,
+	Plus,
 } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useId } from "react";
 import { APP_NAME } from "@/config/site";
 import { Header } from "@/features/landing-page/components/header";
-import "@/styles/components.css";
-import { useId } from "react";
+import { Badge } from "@/ui/badge";
+import { Button } from "@/ui/button";
+import { Card, CardContent } from "@/ui/card";
+import { Input } from "@/ui/input";
 
 export default function Home() {
 	const emailId = useId();
@@ -51,19 +55,16 @@ export default function Home() {
 						</div>
 						<div className="space-y-4">
 							<div className="flex flex-col gap-3 sm:flex-row">
-								<input
+								<Input
 									id={emailId}
 									type="email"
 									placeholder={translations("emailPlaceholder")}
-									className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+									className="h-auto flex-1 py-3"
 								/>
-								<button
-									type="button"
-									className="btn-blue-gradation flex transform items-center justify-center gap-2 whitespace-nowrap px-8 py-3 font-medium"
-								>
+								<Button variant="gradient" size="xl">
 									{translations("cta")}
-									<ArrowRight className="h-5 w-5" />
-								</button>
+									<ArrowRight />
+								</Button>
 							</div>
 						</div>
 						<div className="space-y-3">
@@ -89,7 +90,7 @@ export default function Home() {
 					</div>
 					<div className="relative">
 						<div className="relative mx-auto max-w-[320px]">
-							<div className="relative rounded-[3rem] bg-gray-900 p-3 shadow-2xl">
+							<Card className="rounded-[3rem] border-none bg-gray-900 p-3 shadow-2xl">
 								<div className="overflow-hidden rounded-[2.5rem] bg-white">
 									<div className="flex items-center justify-between bg-gray-900 px-6 py-2 text-white text-xs">
 										<span>9:41</span>
@@ -99,7 +100,7 @@ export default function Home() {
 											<div className="h-3 w-4 rounded-sm bg-white" />
 										</div>
 									</div>
-									<div className="space-y-6 p-6">
+									<CardContent className="space-y-6 p-6">
 										<div className="flex items-center justify-between">
 											<div className="flex items-center gap-2">
 												<Image
@@ -113,59 +114,75 @@ export default function Home() {
 													Habit Log
 												</span>
 											</div>
-											<div className="text-gray-500 text-sm">
+											<Badge
+												variant="outline"
+												className="border-gray-300 font-normal text-gray-500"
+											>
 												ダッシュボード
-											</div>
+											</Badge>
 										</div>
-										<div className="rounded-2xl bg-gradient-to-r from-teal-500 to-cyan-500 p-4 text-white">
-											<div className="mb-2 flex items-center justify-between">
-												<span className="font-medium">腕立て伏せ</span>
-												<div className="flex items-center gap-1">
-													<div className="h-2 w-2 rounded-full bg-white" />
-													<span className="text-xs">今日実施予定</span>
+										<Card className="border-none bg-gradient-to-r from-teal-500 to-cyan-500 text-white">
+											<CardContent className="p-4">
+												<div className="mb-2 flex items-center justify-between">
+													<span className="font-medium">腕立て伏せ</span>
+													<div className="flex items-center gap-1">
+														<div className="h-2 w-2 rounded-full bg-white" />
+														<span className="text-xs">今日実施予定</span>
+													</div>
 												</div>
-											</div>
-											<div className="text-sm opacity-90">直近の記録</div>
-										</div>
-										<div className="rounded-2xl bg-gray-50 p-4">
-											<div className="flex h-32 items-end justify-center gap-2">
-												{[40, 60, 45, 80, 65, 90, 75].map((height) => (
-													<div
-														key={`chart-bar-${height}`}
-														className="w-8 rounded-t-lg bg-gradient-to-t from-blue-500 to-cyan-400"
-														style={{ height: `${height}%` }}
-													/>
-												))}
-											</div>
-										</div>
+												<div className="text-sm opacity-90">直近の記録</div>
+											</CardContent>
+										</Card>
+										<Card className="border-none bg-gray-50">
+											<CardContent className="p-4">
+												<div className="flex h-32 items-end justify-center gap-2">
+													{[40, 60, 45, 80, 65, 90, 75].map((height) => (
+														<div
+															key={`chart-bar-${height}`}
+															className="w-8 rounded-t-lg bg-gradient-to-t from-blue-500 to-cyan-400"
+															style={{ height: `${height}%` }}
+														/>
+													))}
+												</div>
+											</CardContent>
+										</Card>
 										<div className="grid grid-cols-3 gap-3">
-											<div className="text-center">
-												<div className="font-bold text-2xl text-blue-600">
-													156
-												</div>
-												<div className="text-gray-500 text-xs">総日数</div>
-											</div>
-											<div className="text-center">
-												<div className="font-bold text-2xl text-green-600">
-													2,847
-												</div>
-												<div className="text-gray-500 text-xs">総回数</div>
-											</div>
-											<div className="text-center">
-												<div className="font-bold text-2xl text-purple-600">
-													12
-												</div>
-												<div className="text-gray-500 text-xs">復活回数</div>
-											</div>
+											<Card className="border-none bg-transparent">
+												<CardContent className="p-0 text-center">
+													<div className="font-bold text-2xl text-blue-600">
+														156
+													</div>
+													<div className="text-gray-500 text-xs">総日数</div>
+												</CardContent>
+											</Card>
+											<Card className="border-none bg-transparent">
+												<CardContent className="p-0 text-center">
+													<div className="font-bold text-2xl text-green-600">
+														2,847
+													</div>
+													<div className="text-gray-500 text-xs">総回数</div>
+												</CardContent>
+											</Card>
+											<Card className="border-none bg-transparent">
+												<CardContent className="p-0 text-center">
+													<div className="font-bold text-2xl text-purple-600">
+														12
+													</div>
+													<div className="text-gray-500 text-xs">復活回数</div>
+												</CardContent>
+											</Card>
 										</div>
 										<div className="flex justify-end">
-											<div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 text-white shadow-lg">
-												<span className="text-2xl">+</span>
-											</div>
+											<Button
+												size="icon"
+												className="h-14 w-14 rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 text-white shadow-lg hover:from-cyan-500 hover:to-teal-600"
+											>
+												<Plus className="h-6 w-6" />
+											</Button>
 										</div>
-									</div>
+									</CardContent>
 								</div>
-							</div>
+							</Card>
 						</div>
 						<div className="mt-8 flex justify-center gap-2">
 							<div className="h-2 w-2 rounded-full bg-blue-500" />
@@ -173,9 +190,9 @@ export default function Home() {
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 						</div>
-						<div className="-bottom-4 -right-4 absolute flex h-20 w-20 items-center justify-center rounded-full bg-green-500 shadow-xl">
+						<Card className="-bottom-4 -right-4 absolute flex h-20 w-20 items-center justify-center rounded-full border-none bg-green-500 shadow-xl">
 							<CheckCircle className="h-10 w-10 text-white" />
-						</div>
+						</Card>
 					</div>
 				</div>
 			</div>
