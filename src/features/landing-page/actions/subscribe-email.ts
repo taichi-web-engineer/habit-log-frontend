@@ -8,6 +8,7 @@ const subscribeSchema = z.object({
 	email: z.string().email({
 		message: "メールアドレスの形式が正しくありません",
 	}),
+	website: z.string().optional(),
 });
 
 export async function subscribeEmail(_prevState: unknown, formData: FormData) {
@@ -17,6 +18,13 @@ export async function subscribeEmail(_prevState: unknown, formData: FormData) {
 
 	if (submission.status !== "success") {
 		return submission.reply();
+	}
+
+	// Check honeypot field - if filled, it's likely a bot
+	if (submission.value.website) {
+		// Silently reject bot submissions
+		redirect("/?subscribed=true");
+		return;
 	}
 
 	// TODO: Implement actual email subscription logic here

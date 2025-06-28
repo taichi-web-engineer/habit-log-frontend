@@ -19,6 +19,8 @@ const createSubscribeSchema = (
 		email: z.string({ required_error: emailRequiredMessage }).trim().email({
 			message: emailInvalidMessage,
 		}),
+		// Honeypotフィールド
+		website: z.string().optional(),
 	});
 
 export function EmailCTA() {
@@ -88,6 +90,14 @@ export function EmailCTA() {
 					)}
 				</Button>
 			</div>
+			<input
+				type="text"
+				name="website"
+				className="absolute left-[-9999px] h-[1px] w-[1px] overflow-hidden"
+				tabIndex={-1}
+				autoComplete="off"
+				aria-hidden="true"
+			/>
 		</form>
 	);
 }
