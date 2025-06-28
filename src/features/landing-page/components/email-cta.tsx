@@ -26,7 +26,7 @@ const createSubscribeSchema = (
 export function EmailCTA() {
 	const emailId = useId();
 	const translations = useTranslations("Home");
-	const [lastResult, action, isPending] = useActionState(
+	const [lastResult, formAction, isPending] = useActionState(
 		subscribeEmail,
 		undefined,
 	);
@@ -49,7 +49,7 @@ export function EmailCTA() {
 		<form
 			id={form.id}
 			onSubmit={form.onSubmit}
-			action={action}
+			action={formAction}
 			noValidate
 			className="space-y-3"
 			data-testid="email-subscription-form"
