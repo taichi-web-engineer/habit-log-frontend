@@ -16,7 +16,7 @@ const createSubscribeSchema = (
 	emailInvalidMessage: string,
 ) =>
 	z.object({
-		email: z.string({ required_error: emailRequiredMessage }).email({
+		email: z.string({ required_error: emailRequiredMessage }).trim().email({
 			message: emailInvalidMessage,
 		}),
 	});
