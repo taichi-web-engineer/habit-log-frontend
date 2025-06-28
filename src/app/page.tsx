@@ -12,20 +12,35 @@ export default function Home() {
 	const translations = useTranslations("Home");
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+		<div
+			className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50"
+			data-testid="landing-page"
+		>
 			<Header />
-			<div className="container mx-auto px-4 py-8 lg:py-16">
+			<div
+				className="container mx-auto px-4 py-8 lg:py-16"
+				data-testid="main-content"
+			>
 				<div className="grid items-center gap-12 lg:grid-cols-2">
 					<div className="space-y-8">
 						<div className="space-y-4">
-							<h1 className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl">
+							<h1
+								className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl"
+								data-testid="main-title"
+							>
 								{translations("title")}
 							</h1>
-							<p className="text-gray-600 text-lg leading-relaxed">
+							<p
+								className="text-gray-600 text-lg leading-relaxed"
+								data-testid="main-description"
+							>
 								{translations("description", { appName: APP_NAME })}
 							</p>
 						</div>
-						<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+						<div
+							className="grid grid-cols-1 gap-4 sm:grid-cols-3"
+							data-testid="features-grid"
+						>
 							<div className="flex items-center gap-2">
 								<CheckCircle className="h-5 w-5 text-green-500" />
 								<span className="font-medium text-gray-700 text-sm">
@@ -53,7 +68,7 @@ export default function Home() {
 								{translations("userCount")}
 							</p>
 							<div className="flex items-center gap-2">
-								<div className="-space-x-3 flex">
+								<div className="-space-x-3 flex" data-testid="user-avatars">
 									{[1, 2, 3, 4, 5].map((i) => (
 										<div
 											key={i}
@@ -69,7 +84,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="relative">
+					<div className="relative" data-testid="phone-mockup-section">
 						<div className="relative mx-auto max-w-[320px]">
 							<Card className="rounded-[3rem] border-none bg-gray-900 p-3 shadow-2xl">
 								<div className="overflow-hidden rounded-[2.5rem] bg-white">

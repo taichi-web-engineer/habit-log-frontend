@@ -52,6 +52,7 @@ export function EmailCTA() {
 			action={action}
 			noValidate
 			className="space-y-3"
+			data-testid="email-subscription-form"
 		>
 			<div className="flex flex-col gap-3 sm:flex-row">
 				<div className="relative flex-1">
@@ -69,17 +70,25 @@ export function EmailCTA() {
 						aria-describedby={
 							!fields.email.valid ? fields.email.errorId : undefined
 						}
+						data-testid="email-input"
 					/>
 					{fields.email.errors && (
 						<p
 							id={fields.email.errorId}
 							className="absolute mt-1 text-destructive text-sm"
+							data-testid="email-error"
 						>
 							{fields.email.errors}
 						</p>
 					)}
 				</div>
-				<Button type="submit" variant="gradient" size="xl" disabled={isPending}>
+				<Button
+					type="submit"
+					variant="gradient"
+					size="xl"
+					disabled={isPending}
+					data-testid="submit-button"
+				>
 					{isPending ? (
 						translations("submitting")
 					) : (
