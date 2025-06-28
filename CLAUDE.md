@@ -4,19 +4,19 @@ Next.js 15 (App Router)、React 19、TypeScript、Tailwind CSS v4で構築され
 ## 必須コマンド
 ```bash
 # 開発
-pnpm run dev          # Turbopackで開発サーバーを起動 http://localhost:3000
+pnpm run dev # Turbopackで開発サーバーを起動 http://localhost:3000
 
 # ビルド & 本番環境
-pnpm run build        # 最適化された本番ビルドを作成
-pnpm run start        # 本番サーバーを起動
+pnpm run build # 最適化された本番ビルドを作成
+pnpm run start # 本番サーバーを起動
 
 # コード品質
-pnpm biome check --write --unsafe     # コードベース全体をフォーマット・リント
-pnpm biome check --write --unsafe <file>  # 特定のファイルをフォーマット・リント
+pnpm lint # コードベース全体をリント
+pnpm format # コードベース全体をリント・フォーマット
 pnpm tsc --noEmit # TypeScriptのエラーチェック
 
 # テスト
-pnpm test                    # Jestでテストを実行
+pnpm test # Jestでテストを実行
 ```
 
 ## アーキテクチャ & 主要パターン
@@ -44,6 +44,9 @@ pnpm test                    # Jestでテストを実行
 - コンポーネントのバリアントは `class-variance-authority` (cva) で管理
 - アイコンは `lucide-react` を利用
 - ユーティリティクラスは `clsx` とカスタム `cn()` ヘルパーで結合
+- ユーザーに表示される文字列は必ずi18nで国際化対応
+- JSXコメントは不要
+- SEO対策のため、セマンティックHTMLを徹底する
 
 ### フォーム処理
 - フォームは `@conform-to/react` と `@conform-to/zod` でバリデーション
@@ -59,12 +62,14 @@ pnpm test                    # Jestでテストを実行
 - コンポーネントは `useTranslations` フックで翻訳にアクセス可能
 
 ## 開発手順
-- 開発は常にMCPサーバーの`context7`を使用する
+- 常にContext7 MCPを使って最新の公式ドキュメントを参照する
 - コーディングルールは`docs/coding-rule.md`に従う
 - Unit Testルールは`docs/unit-test-rule.md`に従う
+- 実装後はPlaywright MCPで実装した機能を一通り試してエラーがないか確認する
 
 ## 重要な技術的詳細
 - **React Server Components**: デフォルトのコンポーネントはサーバーコンポーネント; クライアントコンポーネントには `"use client"` ディレクティブを使用
 - **TypeScript**: strictモードが有効; すべてのコードに適切な型付けを確保
 - **Next.js設定**: `next.config.ts` のカスタム設定にはi18nプラグイン設定を含む
 - **環境**: pnpmパッケージマネージャーでの開発をサポート
+- React Compilerでパフォーマンスは最適化される

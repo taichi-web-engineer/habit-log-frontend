@@ -10,6 +10,9 @@
 		"cta": "今すぐ始める",
 		"emailPlaceholder": "メールアドレス",
 		"login": "ログイン",
-		"userCount": "10,000人以上のユーザーに愛用されています"
+		"userCount": "10,000人以上のユーザーに愛用されています",
+		"emailRequired": "メールアドレスを入力してください",
+		"emailInvalid": "メールアドレスの形式が正しくありません",
+		"submitting": "送信中..."
 	}
 }

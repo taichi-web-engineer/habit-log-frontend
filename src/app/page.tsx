@@ -1,35 +1,46 @@
-import {
-	ArrowRight,
-	BarChart3,
-	CheckCircle,
-	HeartHandshake,
-} from "lucide-react";
+import { BarChart3, CheckCircle, HeartHandshake, Plus } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { APP_NAME } from "@/config/site";
+import { EmailCTA } from "@/features/landing-page/components/email-cta";
 import { Header } from "@/features/landing-page/components/header";
-import "@/styles/components.css";
-import { useId } from "react";
+import { Badge } from "@/ui/badge";
+import { Button } from "@/ui/button";
+import { Card, CardContent } from "@/ui/card";
 
 export default function Home() {
-	const emailId = useId();
 	const translations = useTranslations("Home");
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+		<div
+			className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50"
+			data-testid="landing-page"
+		>
 			<Header />
-			<div className="container mx-auto px-4 py-8 lg:py-16">
+			<div
+				className="container mx-auto px-4 py-8 lg:py-16"
+				data-testid="main-content"
+			>
 				<div className="grid items-center gap-12 lg:grid-cols-2">
 					<div className="space-y-8">
 						<div className="space-y-4">
-							<h1 className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl">
+							<h1
+								className="font-bold text-5xl text-gray-900 leading-tight lg:text-6xl"
+								data-testid="main-title"
+							>
 								{translations("title")}
 							</h1>
-							<p className="text-gray-600 text-lg leading-relaxed">
+							<p
+								className="text-gray-600 text-lg leading-relaxed"
+								data-testid="main-description"
+							>
 								{translations("description", { appName: APP_NAME })}
 							</p>
 						</div>
-						<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+						<div
+							className="grid grid-cols-1 gap-4 sm:grid-cols-3"
+							data-testid="features-grid"
+						>
 							<div className="flex items-center gap-2">
 								<CheckCircle className="h-5 w-5 text-green-500" />
 								<span className="font-medium text-gray-700 text-sm">
@@ -50,28 +61,14 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="space-y-4">
-							<div className="flex flex-col gap-3 sm:flex-row">
-								<input
-									id={emailId}
-									type="email"
-									placeholder={translations("emailPlaceholder")}
-									className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-								/>
-								<button
-									type="button"
-									className="btn-blue-gradation flex transform items-center justify-center gap-2 whitespace-nowrap px-8 py-3 font-medium"
-								>
-									{translations("cta")}
-									<ArrowRight className="h-5 w-5" />
-								</button>
-							</div>
+							<EmailCTA />
 						</div>
 						<div className="space-y-3">
 							<p className="text-gray-600 text-sm">
 								{translations("userCount")}
 							</p>
 							<div className="flex items-center gap-2">
-								<div className="-space-x-3 flex">
+								<div className="-space-x-3 flex" data-testid="user-avatars">
 									{[1, 2, 3, 4, 5].map((i) => (
 										<div
 											key={i}
@@ -87,9 +84,9 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="relative">
+					<div className="relative" data-testid="phone-mockup-section">
 						<div className="relative mx-auto max-w-[320px]">
-							<div className="relative rounded-[3rem] bg-gray-900 p-3 shadow-2xl">
+							<Card className="rounded-[3rem] border-none bg-gray-900 p-3 shadow-2xl">
 								<div className="overflow-hidden rounded-[2.5rem] bg-white">
 									<div className="flex items-center justify-between bg-gray-900 px-6 py-2 text-white text-xs">
 										<span>9:41</span>
@@ -99,7 +96,7 @@ export default function Home() {
 											<div className="h-3 w-4 rounded-sm bg-white" />
 										</div>
 									</div>
-									<div className="space-y-6 p-6">
+									<CardContent className="space-y-6 p-6">
 										<div className="flex items-center justify-between">
 											<div className="flex items-center gap-2">
 												<Image
@@ -113,59 +110,75 @@ export default function Home() {
 													Habit Log
 												</span>
 											</div>
-											<div className="text-gray-500 text-sm">
+											<Badge
+												variant="outline"
+												className="border-gray-300 font-normal text-gray-500"
+											>
 												ダッシュボード
-											</div>
+											</Badge>
 										</div>
-										<div className="rounded-2xl bg-gradient-to-r from-teal-500 to-cyan-500 p-4 text-white">
-											<div className="mb-2 flex items-center justify-between">
-												<span className="font-medium">腕立て伏せ</span>
-												<div className="flex items-center gap-1">
-													<div className="h-2 w-2 rounded-full bg-white" />
-													<span className="text-xs">今日実施予定</span>
+										<Card className="border-none bg-gradient-to-r from-teal-500 to-cyan-500 text-white">
+											<CardContent className="p-4">
+												<div className="mb-2 flex items-center justify-between">
+													<span className="font-medium">腕立て伏せ</span>
+													<div className="flex items-center gap-1">
+														<div className="h-2 w-2 rounded-full bg-white" />
+														<span className="text-xs">今日実施予定</span>
+													</div>
 												</div>
-											</div>
-											<div className="text-sm opacity-90">直近の記録</div>
-										</div>
-										<div className="rounded-2xl bg-gray-50 p-4">
-											<div className="flex h-32 items-end justify-center gap-2">
-												{[40, 60, 45, 80, 65, 90, 75].map((height) => (
-													<div
-														key={`chart-bar-${height}`}
-														className="w-8 rounded-t-lg bg-gradient-to-t from-blue-500 to-cyan-400"
-														style={{ height: `${height}%` }}
-													/>
-												))}
-											</div>
-										</div>
+												<div className="text-sm opacity-90">直近の記録</div>
+											</CardContent>
+										</Card>
+										<Card className="border-none bg-gray-50">
+											<CardContent className="p-4">
+												<div className="flex h-32 items-end justify-center gap-2">
+													{[40, 60, 45, 80, 65, 90, 75].map((height) => (
+														<div
+															key={`chart-bar-${height}`}
+															className="w-8 rounded-t-lg bg-gradient-to-t from-blue-500 to-cyan-400"
+															style={{ height: `${height}%` }}
+														/>
+													))}
+												</div>
+											</CardContent>
+										</Card>
 										<div className="grid grid-cols-3 gap-3">
-											<div className="text-center">
-												<div className="font-bold text-2xl text-blue-600">
-													156
-												</div>
-												<div className="text-gray-500 text-xs">総日数</div>
-											</div>
-											<div className="text-center">
-												<div className="font-bold text-2xl text-green-600">
-													2,847
-												</div>
-												<div className="text-gray-500 text-xs">総回数</div>
-											</div>
-											<div className="text-center">
-												<div className="font-bold text-2xl text-purple-600">
-													12
-												</div>
-												<div className="text-gray-500 text-xs">復活回数</div>
-											</div>
+											<Card className="border-none bg-transparent">
+												<CardContent className="p-0 text-center">
+													<div className="font-bold text-2xl text-blue-600">
+														156
+													</div>
+													<div className="text-gray-500 text-xs">総日数</div>
+												</CardContent>
+											</Card>
+											<Card className="border-none bg-transparent">
+												<CardContent className="p-0 text-center">
+													<div className="font-bold text-2xl text-green-600">
+														2,847
+													</div>
+													<div className="text-gray-500 text-xs">総回数</div>
+												</CardContent>
+											</Card>
+											<Card className="border-none bg-transparent">
+												<CardContent className="p-0 text-center">
+													<div className="font-bold text-2xl text-purple-600">
+														12
+													</div>
+													<div className="text-gray-500 text-xs">復活回数</div>
+												</CardContent>
+											</Card>
 										</div>
 										<div className="flex justify-end">
-											<div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 text-white shadow-lg">
-												<span className="text-2xl">+</span>
-											</div>
+											<Button
+												size="icon"
+												className="h-14 w-14 rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 text-white shadow-lg hover:from-cyan-500 hover:to-teal-600"
+											>
+												<Plus className="h-6 w-6" />
+											</Button>
 										</div>
-									</div>
+									</CardContent>
 								</div>
-							</div>
+							</Card>
 						</div>
 						<div className="mt-8 flex justify-center gap-2">
 							<div className="h-2 w-2 rounded-full bg-blue-500" />
@@ -173,9 +186,9 @@ export default function Home() {
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 							<div className="h-2 w-2 rounded-full bg-gray-300" />
 						</div>
-						<div className="-bottom-4 -right-4 absolute flex h-20 w-20 items-center justify-center rounded-full bg-green-500 shadow-xl">
-							<CheckCircle className="h-10 w-10 text-white" />
-						</div>
+						<Card className="-bottom-4 -right-4 absolute flex h-12 w-12 items-center justify-center rounded-full border-none bg-green-500 shadow-xl">
+							<CheckCircle className="h-6 w-6 text-white" />
+						</Card>
 					</div>
 				</div>
 			</div>

@@ -10,6 +10,9 @@
 		"cta": "Get Started Now",
 		"emailPlaceholder": "email address",
 		"login": "Login",
-		"userCount": "Trusted by over 10,000 users"
+		"userCount": "Trusted by over 10,000 users",
+		"emailRequired": "Email address is required",
+		"emailInvalid": "Please enter a valid email address",
+		"submitting": "Submitting..."
 	}
 }

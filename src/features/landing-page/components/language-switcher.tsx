@@ -23,12 +23,13 @@ export function LanguageSwitcher() {
 	};
 
 	return (
-		<DropdownMenu>
+		<DropdownMenu data-testid="language-switcher">
 			<DropdownMenuTrigger asChild>
 				<button
 					type="button"
 					disabled={isPending}
 					className="flex items-center gap-1 rounded-lg border border-gray-300 bg-white px-3 py-2.5 font-medium text-gray-700 text-sm transition-colors hover:bg-gray-50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+					data-testid="language-switcher-button"
 				>
 					<Globe className="h-4 w-4" />
 				</button>
@@ -46,6 +47,7 @@ export function LanguageSwitcher() {
 							}}
 							className={isActive ? "font-medium text-blue-700" : ""}
 							disabled={isPending}
+							data-testid={`language-option-${key}`}
 						>
 							<div className="flex h-4 w-4 items-center justify-center">
 								{isActive && <Check className="h-4 w-4" />}
