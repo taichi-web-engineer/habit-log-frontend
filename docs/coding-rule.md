@@ -6,8 +6,10 @@
 ## 実装時
 ### コンポーネント
 - `px-4 py-4`のようなxとyが同じ値のCSSは冗長なので`p-4`のようにまとめる
-- inputタグにはReactの`useId`で取得したid属性を付与する
+- inputタグにはReactの`useId`で取得したid属性を付与
+- E2Eテストのため、要素に必要に応じて`data-testid`を付与
 
 ## 実装後のチェック
 - `pnpm tsc --noEmit`でエラーが出ないことを確認
 - `pnpm format`でリントと型チェックを通過することを確認
+- Playwright MCPで開発者ツールのコンソールにエラーや警告がないことを確認
