@@ -1,10 +1,11 @@
 packages:
-  - '.'
+  - .
 
 ignoredBuiltDependencies:
   - '@biomejs/biome'
 
 onlyBuiltDependencies:
+  - '@clerk/shared'
   - '@tailwindcss/oxide'
   - lefthook
   - sharp

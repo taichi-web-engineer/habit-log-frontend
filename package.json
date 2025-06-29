@@ -13,7 +13,7 @@
 		"test:ci": "jest --runInBand"
 	},
 	"dependencies": {
-		"@auth0/nextjs-auth0": "^4.7.0",
+		"@clerk/nextjs": "^6.23.1",
 		"@conform-to/react": "^1.7.2",
 		"@conform-to/zod": "^1.7.2",
 		"@formatjs/intl-localematcher": "^0.6.1",
