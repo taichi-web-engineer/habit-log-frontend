@@ -62,6 +62,7 @@ export function EmailCTA() {
 					<Input
 						id={emailId}
 						name={fields.email.name}
+						autoComplete="email"
 						type="email"
 						placeholder={translations("emailPlaceholder")}
 						className="h-auto py-3"
