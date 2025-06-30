@@ -16,7 +16,7 @@ jobs:
     env:
       CI: true # Jest/pnpmがCI環境に最適化される
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
         with:
           # versionが未指定だとpackage.jsonのpackageManagerからバージョンを参照する
