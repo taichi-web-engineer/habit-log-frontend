@@ -15,5 +15,5 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-      day: 1
+      day: "friday"
       time: "14:00"
