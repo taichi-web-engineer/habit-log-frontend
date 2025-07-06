@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import "@/app/globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 import { getLocale, getMessages } from "next-intl/server";
 import { APP_NAME, DESCRIPTION, SITE_URL } from "@/config/site";
 
@@ -36,12 +37,14 @@ export default async function RootLayout({
 	const messages = await getMessages();
 
 	return (
-		<html lang={locale}>
-			<body className="antialiased">
-				<NextIntlClientProvider locale={locale} messages={messages}>
-					{children}
-				</NextIntlClientProvider>
-			</body>
-		</html>
+		<ClerkProvider>
+			<html lang={locale}>
+				<body className="antialiased">
+					<NextIntlClientProvider locale={locale} messages={messages}>
+						{children}
+					</NextIntlClientProvider>
+				</body>
+			</html>
+		</ClerkProvider>
 	);
 }

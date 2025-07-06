@@ -4,6 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "friday"
+      time: "14:00" # 日本時間23時
     # ロックファイルが大きい場合はPRを1本にまとめる
     groups:
       all-pnpm-deps:
@@ -13,3 +15,5 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+      day: "friday"
+      time: "14:00"
