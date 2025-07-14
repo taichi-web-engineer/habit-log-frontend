@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "@conform-to/react";
-import { parseWithZod } from "@conform-to/zod";
+import { parseWithZod } from "@conform-to/zod/v4";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useActionState, useId } from "react";
@@ -16,7 +16,7 @@ const createSubscribeSchema = (
 	emailInvalidMessage: string,
 ) =>
 	z.object({
-		email: z.string({ required_error: emailRequiredMessage }).trim().email({
+		email: z.string({ error: emailRequiredMessage }).trim().email({
 			message: emailInvalidMessage,
 		}),
 		// Honeypotフィールド
