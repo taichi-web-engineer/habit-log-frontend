@@ -18,7 +18,7 @@ export default function Home() {
 		>
 			<Header />
 			<div
-				className="container mx-auto px-4 py-8 lg:py-16"
+				className="container mx-auto max-w-7xl px-4 py-8 lg:py-16"
 				data-testid="main-content"
 			>
 				<div className="grid items-center gap-12 lg:grid-cols-2">
