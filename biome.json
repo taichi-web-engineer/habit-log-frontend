@@ -10,10 +10,10 @@
 		"includes": [
 			"src/**/*.{js,jsx,ts,tsx}",
 			"*.{js,ts,json}",
-			"!**/node_modules/**",
-			"!**/.next/**",
-			"!**/dist/**",
-			"!**/build/**",
+			"!**/node_modules",
+			"!**/.next",
+			"!**/dist",
+			"!**/build",
 			"!pnpm-lock.yaml"
 		]
 	},
@@ -28,7 +28,8 @@
 			"recommended": true,
 			"correctness": {
 				"noUnusedImports": "error",
-				"noUnusedVariables": "warn"
+				"noUnusedVariables": "warn",
+				"noReactPropAssignments": "error"
 			},
 			"nursery": {
 				"useSortedClasses": {
@@ -36,8 +37,7 @@
 					"options": {
 						"functions": ["clsx", "cva", "tw", "tw.*"]
 					}
-				},
-				"noReactPropAssign": "error"
+				}
 			},
 			"style": {
 				"noParameterAssign": "error",
